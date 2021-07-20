@@ -109,14 +109,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void TreeActivity(){
-
+       Intent intent = new Intent(MainActivity.this, UsersActivity.class);
+       startActivity(intent);
     }
 
     private void TwoActivity() {
+        Intent intent = new Intent(MainActivity.this, HistoryActivity.class);
+        startActivity(intent);
     }
 
     private void OneActivity() {
-        
+        Intent intent = new Intent(MainActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 
 
