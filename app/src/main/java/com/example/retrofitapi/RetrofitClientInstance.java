@@ -5,7 +5,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClientInstance {
     private static Retrofit retrofit;
-    private static final String BASE_URL = "https://jsonplaceholder.typicode.com";
+
+   // private static final String BASE_URL = "https://jsonplaceholder.typicode.com";
+//https://api.npoint.io/1aad572efb444958dd45
+
+    private static final String BASE_URL = "https://api.npoint.io";
 
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {

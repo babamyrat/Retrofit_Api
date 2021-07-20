@@ -5,13 +5,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Callback;
+
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,21 +42,29 @@ public class MainActivity extends AppCompatActivity {
         Call<List<PhotoModel>> call = service.getAllPhotos();
         call.enqueue(new retrofit2.Callback<List<PhotoModel>>() {
             @Override
-            public void onResponse(retrofit2.Call<List<PhotoModel>> call, Response<List<PhotoModel>> response) {
-                progressDialog.dismiss();
+            public void onResponse(retrofit2.Call<List<PhotoModel>> call, Response<List<PhotoModel>> response) {     // Response
+                progressDialog.dismiss();   // progress
+
                 generateDataList(response.body());
+
             }
 
+
             @Override
-            public void onFailure(retrofit2.Call<List<PhotoModel>> call, Throwable t) {
+            public void onFailure(retrofit2.Call<List<PhotoModel>> call, Throwable t) {       // in not on uri
 
                 progressDialog.dismiss();
                 Toast.makeText(MainActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
-
             }
 
         });
+
+
+
+
+
     }
+
 
     //Method to generate List of data using RecyclerView with custom adapter
     private void generateDataList(List<PhotoModel> photoList) {
@@ -59,6 +73,50 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+    }
+
+    // Working menu Bottom
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.bottom_menu, menu);
+        return true;
+
+    }
+    // Handle item.getItemId
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.page_1:
+                OneActivity();
+                return true;
+            case R.id.page_2:
+                TwoActivity();
+                return true;
+            case R.id.page_3:
+                TreeActivity();
+                return true;
+            case R.id.page_4:
+                FourActivity();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void FourActivity(){
+        Intent intent = new Intent(MainActivity.this, LikeActivity.class);
+        startActivity(intent);
+
+    }
+
+    private void TreeActivity(){
+
+    }
+
+    private void TwoActivity() {
+    }
+
+    private void OneActivity() {
+        
     }
 
 
