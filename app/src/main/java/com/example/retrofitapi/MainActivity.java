@@ -15,8 +15,8 @@ import android.widget.Toast;
 import com.example.retrofitapi.activity.HistoryActivity;
 import com.example.retrofitapi.activity.LikeActivity;
 import com.example.retrofitapi.activity.UsersActivity;
-import com.example.retrofitapi.adapter.CustomAdapter;
-import com.example.retrofitapi.model.PhotoModel;
+import com.example.retrofitapi.adapter.ExampleAdapter;
+import com.example.retrofitapi.model.ExampleModel;
 import com.example.retrofitapi.model.ServerResponse;
 
 import java.util.List;
@@ -27,7 +27,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private CustomAdapter adapter;
+    private ExampleAdapter adapter;
     private RecyclerView recyclerView;
     ProgressDialog progressDialog;
 
@@ -70,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     //Method to generate List of data using RecyclerView with custom adapter
-    private void generateDataList(List<PhotoModel> photoList) {
+    private void generateDataList(List<ExampleModel> photoList) {
         recyclerView = findViewById(R.id.customRecyclerView);
-        adapter = new CustomAdapter(this,photoList);
+        adapter = new ExampleAdapter(this,photoList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);

@@ -4,20 +4,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="20dp"
     android:elevation="12dp"
     app:cardCornerRadius="12dp"
     android:layout_centerHorizontal="true"
-    android:layout_marginStart="60dp"
-    android:layout_marginEnd="60dp"
-    android:layout_height="300dp">
+    android:layout_marginStart="80dp"
+    android:layout_marginEnd="80dp"
+    android:layout_height="280dp">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="240dp"
         android:layout_height="231dp"
         android:layout_gravity="center"
+        android:layout_marginTop="-60dp"
         android:padding="10dp"
+        android:radius="14dp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -31,12 +33,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="80dp"
         android:layout_marginBottom="4dp"
-        android:text="TextView"
+        android:text="Name"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="4dp"
+        android:text="Num"
+        android:textColor="#FF9800"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 </androidx.cardview.widget.CardView>

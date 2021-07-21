@@ -10,18 +10,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.retrofitapi.model.PhotoModel;
+import com.example.retrofitapi.model.ExampleModel;
 import com.example.retrofitapi.R;
 import com.jakewharton.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
-    private List<PhotoModel> dataList;
+public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.CustomViewHolder> {
+    private List<ExampleModel> dataList;
     private Context context;
 
-    public CustomAdapter(Context context, List<PhotoModel> dataList){
+    public ExampleAdapter(Context context, List<ExampleModel> dataList){
         this.context = context;
         this.dataList = dataList;
     }
@@ -29,13 +29,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     class CustomViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
 
-        TextView txtTitle;
+        TextView txtTitle, txtNumber;
         private ImageView coverImage;
 
         CustomViewHolder(View itemView) {
          super(itemView);
          mView = itemView;
 
+         txtNumber = mView.findViewById(R.id.textView2);
          txtTitle = mView.findViewById(R.id.textView);
          coverImage = mView.findViewById(R.id.imageView);
 
@@ -46,16 +47,17 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     @NonNull
     @org.jetbrains.annotations.NotNull
     @Override
-    public CustomAdapter.CustomViewHolder onCreateViewHolder(@NonNull @org.jetbrains.annotations.NotNull ViewGroup parent, int viewType) {
+    public ExampleAdapter.CustomViewHolder onCreateViewHolder(@NonNull @org.jetbrains.annotations.NotNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.list_item, parent, false);
         return new CustomViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @org.jetbrains.annotations.NotNull CustomAdapter.CustomViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @org.jetbrains.annotations.NotNull ExampleAdapter.CustomViewHolder holder, int position) {
 
         holder.txtTitle.setText(dataList.get(position).getStrCategory());
+        holder.txtNumber.setText(dataList.get(position).getIdCategory());
 
         Picasso.Builder builder = new Picasso.Builder(context);
         builder.downloader(new OkHttp3Downloader(context));

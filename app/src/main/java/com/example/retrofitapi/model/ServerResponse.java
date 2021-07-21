@@ -12,13 +12,13 @@ public class ServerResponse {
 
     @SerializedName("categories")
     @Expose
-    private List<PhotoModel> categories = new ArrayList<>();
+    private List<ExampleModel> categories = new ArrayList<>();
 
-    public List<PhotoModel> getCategories() {
+    public List<ExampleModel> getCategories() {
         return categories;
     }
 
-    public void setCategories(List<PhotoModel> categories) {
+    public void setCategories(List<ExampleModel> categories) {
         this.categories = categories;
     }
 
