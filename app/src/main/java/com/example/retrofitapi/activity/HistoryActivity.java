@@ -1,14 +1,16 @@
-package com.example.retrofitapi;
+package com.example.retrofitapi.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class UsersActivity extends AppCompatActivity {
+import com.example.retrofitapi.R;
+
+public class HistoryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_users);
+        setContentView(R.layout.activity_history);
     }
 }

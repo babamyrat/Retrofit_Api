@@ -10,9 +10,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
-import android.widget.Switch;
 import android.widget.Toast;
+
+import com.example.retrofitapi.activity.HistoryActivity;
+import com.example.retrofitapi.activity.LikeActivity;
+import com.example.retrofitapi.activity.UsersActivity;
+import com.example.retrofitapi.adapter.CustomAdapter;
+import com.example.retrofitapi.model.PhotoModel;
 
 import java.util.List;
 
@@ -45,7 +49,9 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(retrofit2.Call<List<PhotoModel>> call, Response<List<PhotoModel>> response) {     // Response
                 progressDialog.dismiss();   // progress
 
-                generateDataList(response.body());
+                if (response.isSuccessful()){
+                    generateDataList(response.body());
+                }
 
             }
 
@@ -58,10 +64,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-
-
-
-
 
     }
 

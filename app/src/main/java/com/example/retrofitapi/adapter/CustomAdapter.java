@@ -1,4 +1,4 @@
-package com.example.retrofitapi;
+package com.example.retrofitapi.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,8 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.retrofitapi.model.PhotoModel;
+import com.example.retrofitapi.R;
 import com.jakewharton.picasso.OkHttp3Downloader;
-import com.squareup.picasso.OkHttpDownloader;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -54,11 +55,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     @Override
     public void onBindViewHolder(@NonNull @org.jetbrains.annotations.NotNull CustomAdapter.CustomViewHolder holder, int position) {
 
-        holder.txtTitle.setText(dataList.get(position).getTitle());
+        holder.txtTitle.setText(dataList.get(position).getStrCategory());
 
         Picasso.Builder builder = new Picasso.Builder(context);
         builder.downloader(new OkHttp3Downloader(context));
-        builder.build().load(dataList.get(position).getThumbnailUrl())
+        builder.build().load(dataList.get(position).getStrCategoryThumb())
                 .placeholder((R.drawable.ic_launcher_background))
                 .error(R.drawable.ic_launcher_foreground)
                 .into(holder.coverImage);
