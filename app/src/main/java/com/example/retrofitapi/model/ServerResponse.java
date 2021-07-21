@@ -1,6 +1,6 @@
-package com.example.retrofitapi;
+package com.example.retrofitapi.model;
 
-import com.example.retrofitapi.model.PhotoModel;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-class Example {
+public class ServerResponse {
 
     @SerializedName("categories")
     @Expose

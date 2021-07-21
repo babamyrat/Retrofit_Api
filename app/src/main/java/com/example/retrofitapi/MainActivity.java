@@ -17,6 +17,7 @@ import com.example.retrofitapi.activity.LikeActivity;
 import com.example.retrofitapi.activity.UsersActivity;
 import com.example.retrofitapi.adapter.CustomAdapter;
 import com.example.retrofitapi.model.PhotoModel;
+import com.example.retrofitapi.model.ServerResponse;
 
 import java.util.List;
 
@@ -43,21 +44,21 @@ public class MainActivity extends AppCompatActivity {
 
         //Create handle for the RetrofitInstance interface
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
-        Call<List<PhotoModel>> call = service.getAllPhotos();
-        call.enqueue(new retrofit2.Callback<List<PhotoModel>>() {
+        Call<ServerResponse> call = service.getAllPhotos();
+        call.enqueue(new retrofit2.Callback<ServerResponse>() {
             @Override
-            public void onResponse(retrofit2.Call<List<PhotoModel>> call, Response<List<PhotoModel>> response) {     // Response
+            public void onResponse(retrofit2.Call<ServerResponse> call, Response<ServerResponse> response) {     // Response
                 progressDialog.dismiss();   // progress
 
                 if (response.isSuccessful()){
-                    generateDataList(response.body());
+                    generateDataList(response.body().getCategories());
                 }
 
             }
 
 
             @Override
-            public void onFailure(retrofit2.Call<List<PhotoModel>> call, Throwable t) {       // in not on uri
+            public void onFailure(retrofit2.Call<ServerResponse> call, Throwable t) {       // in not on uri
 
                 progressDialog.dismiss();
                 Toast.makeText(MainActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
