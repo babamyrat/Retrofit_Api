@@ -6,12 +6,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface GetDataService {
-    //
 
-
-   // @GET("/categories.php")
-
-   // @GET("/495f889a44cadfe1b17b")
 
    @GET("/api/json/v1/1/categories.php")
     Call<ServerResponse> getAllPhotos();

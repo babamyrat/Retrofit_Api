@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Retrofit Api</string>
+    <string name="delicious_food_for_you">Delicious food for you</string>
 </resources>
