@@ -8,8 +8,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.retrofitapi.fragment.PageFragment;
 import com.example.retrofitapi.model.ExampleModel;
 import com.example.retrofitapi.R;
 import com.jakewharton.picasso.OkHttp3Downloader;
@@ -44,6 +46,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.CustomVi
 
     }
 
+
     @NonNull
     @org.jetbrains.annotations.NotNull
     @Override
@@ -67,6 +70,8 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.CustomVi
                 .into(holder.coverImage);
 
     }
+
+
 
     @Override
     public int getItemCount() {

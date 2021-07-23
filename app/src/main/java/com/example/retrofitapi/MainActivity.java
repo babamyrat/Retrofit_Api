@@ -50,13 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
 //_______________________________ViewPager____________________________________________//
 
-        ViewPager2 pager=(ViewPager2)findViewById(R.id.pager);
-        FragmentStateAdapter pageAdapter = new MyAdapter(this);
-        pager.setAdapter(pageAdapter);
 
-        TabLayout tabLayout = findViewById(R.id.tapLayout);
-        TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(tabLayout, pager, (tab, position) -> tab.setText("Страница" + (position + 1)));
-        tabLayoutMediator.attach();
+
 
 
 //________________________________________________________________________________//
@@ -95,12 +90,24 @@ public class MainActivity extends AppCompatActivity {
 
     //Method to generate List of data using RecyclerView with custom adapter
     private void generateDataList(List<ExampleModel> photoList) {
-        recyclerView = findViewById(R.id.customRecyclerView);
+     //   recyclerView = findViewById(R.id.customRecyclerView);
         adapter = new ExampleAdapter(this,photoList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
+     //   RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
+     //   recyclerView.setLayoutManager(layoutManager);
+     //   recyclerView.setAdapter(adapter);
+        initViewPager(adapter, photoList);
 
+    }
+
+    private void initViewPager(ExampleAdapter adapter, List<ExampleModel> photoList ) {
+        ViewPager2 pager=(ViewPager2)findViewById(R.id.pager);
+      //  FragmentStateAdapter pageAdapter = new MyAdapter(this);
+    //    pager.setAdapter(pageAdapter);
+        pager.setAdapter(adapter);
+
+        TabLayout tabLayout = findViewById(R.id.tapLayout);
+        TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(tabLayout, pager, (tab, position) -> tab.setText(photoList.get(position).getStrCategory()));
+        tabLayoutMediator.attach();
     }
 
 

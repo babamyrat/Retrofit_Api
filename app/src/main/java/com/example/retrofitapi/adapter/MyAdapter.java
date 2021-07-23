@@ -12,7 +12,9 @@ import com.example.retrofitapi.fragment.PageFragment;
 
 //--------------------------------------------------------------------------------------//
 public class MyAdapter extends FragmentStateAdapter {
-
+    
+//    private List<ExampleModel> dataList;
+//    private Context context;
 
     public MyAdapter(FragmentActivity fragmentActivity) {
         super(fragmentActivity);
