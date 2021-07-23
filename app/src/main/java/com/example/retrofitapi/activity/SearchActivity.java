@@ -1,6 +1,7 @@
 package com.example.retrofitapi.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -72,8 +73,12 @@ public class SearchActivity extends AppCompatActivity {
     private void generateDataList(List<SearchModel> photoList) {
         recyclerView = findViewById(R.id.recyclerView);
         adapter = new SearchAdapter(photoList, this);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(SearchActivity.this);
-        recyclerView.setLayoutManager(layoutManager);
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(SearchActivity.this);
+//        recyclerView.setLayoutManager(layoutManager);
+
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(mLayoutManager);
+
         recyclerView.setAdapter(adapter);
 
     }

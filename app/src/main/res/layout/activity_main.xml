@@ -65,6 +65,8 @@
         android:textSize="24sp"
         android:drawableStart="@drawable/ic_search"
         />
+
+
     <Button
         android:id="@+id/btnClickNext"
         android:layout_width="wrap_content"
