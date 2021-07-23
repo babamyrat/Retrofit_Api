@@ -1,10 +1,7 @@
 package com.example.retrofitapi;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.app.ProgressDialog;
@@ -19,7 +16,6 @@ import com.example.retrofitapi.activity.HistoryActivity;
 import com.example.retrofitapi.activity.LikeActivity;
 import com.example.retrofitapi.activity.UsersActivity;
 import com.example.retrofitapi.adapter.ExampleAdapter;
-import com.example.retrofitapi.adapter.MyAdapter;
 import com.example.retrofitapi.model.ExampleModel;
 import com.example.retrofitapi.model.ServerResponse;
 import com.google.android.material.tabs.TabLayout;
@@ -47,22 +43,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-//_______________________________ViewPager____________________________________________//
-
-
-
-
-
-//________________________________________________________________________________//
-
         progressDialog = new ProgressDialog(MainActivity.this);
         progressDialog.setMessage("Loading....");
         progressDialog.show();
 
 
         //Create handle for the RetrofitInstance interface
-        GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
+        GetInterface service = RetrofitClientInstance.getRetrofitInstance().create(GetInterface.class);
         Call<ServerResponse> call = service.getAllPhotos();
         call.enqueue(new retrofit2.Callback<ServerResponse>() {
             @Override
@@ -90,26 +77,16 @@ public class MainActivity extends AppCompatActivity {
 
     //Method to generate List of data using RecyclerView with custom adapter
     private void generateDataList(List<ExampleModel> photoList) {
-     //   recyclerView = findViewById(R.id.customRecyclerView);
         adapter = new ExampleAdapter(this,photoList);
-     //   RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
-     //   recyclerView.setLayoutManager(layoutManager);
-     //   recyclerView.setAdapter(adapter);
-        initViewPager(adapter, photoList);
-
-    }
-
-    private void initViewPager(ExampleAdapter adapter, List<ExampleModel> photoList ) {
-        ViewPager2 pager=(ViewPager2)findViewById(R.id.pager);
-      //  FragmentStateAdapter pageAdapter = new MyAdapter(this);
-    //    pager.setAdapter(pageAdapter);
+        ViewPager2 pager=findViewById(R.id.pager);
         pager.setAdapter(adapter);
-
         TabLayout tabLayout = findViewById(R.id.tapLayout);
-        TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(tabLayout, pager, (tab, position) -> tab.setText(photoList.get(position).getStrCategory()));
+        TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(tabLayout, pager, (tab, position) ->
+                tab.setText(photoList.get(position).getStrCategory()));
         tabLayoutMediator.attach();
-    }
 
+
+    }
 
 
     // Working menu Bottom

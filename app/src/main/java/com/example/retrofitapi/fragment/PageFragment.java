@@ -36,7 +36,7 @@ public class PageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View result=inflater.inflate(R.layout.fragment_page, container, false);
-        TextView pageHeader=(TextView)result.findViewById(R.id.displayText);
+        TextView pageHeader=result.findViewById(R.id.displayText);
         String header = "Фрагмент" + (pageNumber+1);
         pageHeader.setText(header);
         return result;
