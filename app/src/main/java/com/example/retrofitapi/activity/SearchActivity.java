@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.retrofitapi.GetInterface;
@@ -32,11 +33,18 @@ public class SearchActivity extends AppCompatActivity {
     private SearchAdapter adapter;
     private RecyclerView recyclerView;
     ProgressDialog progressDialog;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        // back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+//        searchView = findViewById(R.id.)
+
         progressDialog = new ProgressDialog(SearchActivity.this);
         progressDialog.setMessage("Loading....");
         progressDialog.show();
@@ -82,4 +90,7 @@ public class SearchActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
     }
+
+
+
 }
