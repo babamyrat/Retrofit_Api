@@ -1,7 +1,6 @@
 package com.example.retrofitapi;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.app.ProgressDialog;
@@ -10,12 +9,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.retrofitapi.activity.HistoryActivity;
-import com.example.retrofitapi.activity.LikeActivity;
+import com.example.retrofitapi.activity.OrderActivity;
 import com.example.retrofitapi.activity.SearchActivity;
 import com.example.retrofitapi.activity.UsersActivity;
 import com.example.retrofitapi.adapter.ExampleAdapter;
@@ -36,9 +34,9 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private ExampleAdapter adapter;
-    private RecyclerView recyclerView;
     ProgressDialog progressDialog;
     Button btnClickNext;
+   // SearchView searchView;
 
 
     @Override
@@ -46,8 +44,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+       // searchView = findViewById(R.id.searchView);
         btnClickNext = findViewById(R.id.btnClickNext);
-        ClickButtonNext();
+        ButtonClickNextSearchActivity();
+
 
 
 
@@ -126,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void FourActivity(){
-        Intent intent = new Intent(MainActivity.this, LikeActivity.class);
+        Intent intent = new Intent(MainActivity.this, OrderActivity.class);
         startActivity(intent);
     }
 
@@ -145,18 +146,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-    public void ClickButtonNext() {
-        btnClickNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
-                startActivity(intent);
-            }
+    public void ButtonClickNextSearchActivity(){
+        btnClickNext.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+            startActivity(intent);
         });
-
     }
-
 
 
 

@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.retrofitapi.R;
 
-public class LikeActivity extends AppCompatActivity {
+public class OrderActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

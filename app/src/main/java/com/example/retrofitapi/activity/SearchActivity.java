@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -52,7 +55,7 @@ public class SearchActivity extends AppCompatActivity {
 
         //Create handle for the RetrofitInstance interface
         GetInterface service = RetrofitClientInstance.getRetrofitInstance().create(GetInterface.class);
-        Call<SearchResponse> call = service.getAllInfo();
+        Call<SearchResponse> call = service.getAllInfo("spic");
         call.enqueue(new retrofit2.Callback<SearchResponse>() {
             @Override
             public void onResponse(retrofit2.@NotNull Call<SearchResponse> call, @NotNull Response<SearchResponse> response) {     // Response
@@ -81,14 +84,35 @@ public class SearchActivity extends AppCompatActivity {
     private void generateDataList(List<SearchModel> photoList) {
         recyclerView = findViewById(R.id.recyclerView);
         adapter = new SearchAdapter(photoList, this);
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(SearchActivity.this);
-//        recyclerView.setLayoutManager(layoutManager);
-
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(mLayoutManager);
 
         recyclerView.setAdapter(adapter);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.example_menu, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
+
+            }
+        });
+        return true;
     }
 
 
