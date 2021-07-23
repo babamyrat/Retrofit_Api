@@ -28,24 +28,6 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.CustomVi
         this.dataList = dataList;
     }
 
-    class CustomViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-
-        TextView txtTitle, txtNumber;
-        private ImageView coverImage;
-
-        CustomViewHolder(View itemView) {
-         super(itemView);
-         mView = itemView;
-
-         txtNumber = mView.findViewById(R.id.textView2);
-         txtTitle = mView.findViewById(R.id.textView);
-         coverImage = mView.findViewById(R.id.imageView);
-
-        }
-
-    }
-
 
     @NonNull
     @org.jetbrains.annotations.NotNull
@@ -72,9 +54,28 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.CustomVi
     }
 
 
-
     @Override
     public int getItemCount() {
         return dataList.size();
+    }
+
+
+
+    class CustomViewHolder extends RecyclerView.ViewHolder {
+        public final View mView;
+
+        TextView txtTitle, txtNumber;
+        private ImageView coverImage;
+
+        CustomViewHolder(View itemView) {
+            super(itemView);
+            mView = itemView;
+
+            txtNumber = mView.findViewById(R.id.textView2);
+            txtTitle = mView.findViewById(R.id.textView);
+            coverImage = mView.findViewById(R.id.imageView);
+
+        }
+
     }
 }

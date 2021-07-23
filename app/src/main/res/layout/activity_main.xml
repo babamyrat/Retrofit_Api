@@ -65,6 +65,11 @@
         android:textSize="24sp"
         android:drawableStart="@drawable/ic_search"
         />
+    <Button
+        android:id="@+id/btnClickNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next Search"/>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tapLayout"
