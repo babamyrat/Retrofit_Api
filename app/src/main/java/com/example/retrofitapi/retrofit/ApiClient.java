@@ -3,7 +3,7 @@ package com.example.retrofitapi.retrofit;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RetrofitClientInstance {
+public class ApiClient {
     private static Retrofit retrofit;
 
 
