@@ -44,10 +44,9 @@
             android:text="@string/delicious_food_for_you"
             android:layout_marginStart="30dp"
             android:textSize="36sp"
+            android:textColor="#000000"
             android:textStyle="bold" />
     </LinearLayout>
-
-
 
 
     <com.google.android.material.tabs.TabLayout
@@ -55,39 +54,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#F9F9F9"
-        app:tabMode="scrollable"
         app:tabContentStart="30dp"
-        >
+        app:tabIndicatorColor="#FA4A0C"
+        app:tabSelectedTextColor="#FA4A0C"
+        app:tabTextColor="#9A9A9D"
+        app:tabMode="scrollable">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="name1"/>
+            android:text="name1" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="name2"/>
+            android:text="name2" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="name3"/>
+            android:text="name3" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="name4"/>
+            android:text="name4" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="name5"/>
+            android:text="name5" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="name6"/>
+            android:text="name6" />
 
     </com.google.android.material.tabs.TabLayout>
 

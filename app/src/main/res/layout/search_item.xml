@@ -43,6 +43,7 @@
             android:layout_marginBottom="4dp"
             android:text="Name"
             android:textSize="20sp"
+            android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -56,7 +57,7 @@
             android:layout_marginTop="120dp"
             android:layout_marginBottom="4dp"
             android:text="Num"
-            android:textColor="#FF9800"
+            android:textColor="#FA4A0C"
             android:textSize="20sp"
             android:textStyle="bold" />
 
