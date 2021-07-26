@@ -9,12 +9,12 @@
         android:id="@+id/page_2"
         android:enabled="true"
         android:icon="@drawable/ic_offline"
-        android:title="Love"/>
+        android:title="Search"/>
     <item
         android:id="@+id/page_3"
         android:enabled="true"
         android:icon="@drawable/ic_user"
-        android:title="User"/>
+        android:title="Users"/>
     <item
         android:id="@+id/page_4"
         android:enabled="true"
