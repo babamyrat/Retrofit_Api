@@ -5,14 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.SearchActivity">
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="30dp"
+        android:shadowRadius="24"
+        android:hint="Search"
+        android:textSize="24sp"
+        android:drawableStart="@drawable/ic_search"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/searchView"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="2dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"

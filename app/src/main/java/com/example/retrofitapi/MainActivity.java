@@ -35,8 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ExampleAdapter adapter;
     ProgressDialog progressDialog;
-    Button btnClickNext;
-   // SearchView searchView;
+
 
 
     @Override
@@ -45,11 +44,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-       // searchView = findViewById(R.id.searchView);
-        btnClickNext = findViewById(R.id.btnClickNext);
-        ButtonClickNextSearchActivity();
-
-
+        // searchView = findViewById(R.id.searchView);
+//        btnClickNext = findViewById(R.id.btnClickNext);
+//        ButtonClickNextSearchActivity();
 
 
         progressDialog = new ProgressDialog(MainActivity.this);
@@ -65,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(retrofit2.@NotNull Call<ServerResponse> call, @NotNull Response<ServerResponse> response) {     // Response
                 progressDialog.dismiss();   // progress
 
-                if (response.isSuccessful()){
+                if (response.isSuccessful()) {
                     assert response.body() != null;
                     generateDataList(response.body().getCategories());
                 }
@@ -86,25 +83,25 @@ public class MainActivity extends AppCompatActivity {
 
     //Method to generate List of data using RecyclerView with custom adapter
     private void generateDataList(List<ExampleModel> photoList) {
-        adapter = new ExampleAdapter(this,photoList);
-        ViewPager2 pager=findViewById(R.id.pager);
+        adapter = new ExampleAdapter(this, photoList);
+        ViewPager2 pager = findViewById(R.id.pager);
         pager.setAdapter(adapter);
         TabLayout tabLayout = findViewById(R.id.tapLayout);
         TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(tabLayout, pager, (tab, position) ->
                 tab.setText(photoList.get(position).getStrCategory()));
         tabLayoutMediator.attach();
 
-
     }
 
 
     // Working menu Bottom
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.bottom_menu, menu);
         return true;
     }
 
+    //
     // Handle item.getItemId
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -126,18 +123,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void FourActivity(){
-        Intent intent = new Intent(MainActivity.this, OrderActivity.class);
+    private void FourActivity() {
+        Intent intent = new Intent(MainActivity.this, HistoryActivity.class);
         startActivity(intent);
     }
 
-    private void TreeActivity(){
-       Intent intent = new Intent(MainActivity.this, UsersActivity.class);
-       startActivity(intent);
+    private void TreeActivity() {
+        Intent intent = new Intent(MainActivity.this, UsersActivity.class);
+        startActivity(intent);
     }
 
     private void TwoActivity() {
-        Intent intent = new Intent(MainActivity.this, HistoryActivity.class);
+        Intent intent = new Intent(MainActivity.this, SearchActivity.class);
         startActivity(intent);
     }
 
@@ -146,13 +143,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void ButtonClickNextSearchActivity(){
-        btnClickNext.setOnClickListener(view -> {
-            Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
-            startActivity(intent);
-        });
-    }
-
-
+//    public void ButtonClickNextSearchActivity() {
+//        btnClickNext.setOnClickListener(view -> {
+//            Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+//            startActivity(intent);
+//        });
+//    }
 
 }
+
+
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/historyActivity">
+    <activity
+        android:id="@+id/historyActivity"
+        android:name="com.example.retrofitapi.activity.HistoryActivity"
+        android:label="activity_history"
+        tools:layout="@layout/activity_history" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.retrofitapi.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <activity
+        android:id="@+id/searchActivity"
+        android:name="com.example.retrofitapi.activity.SearchActivity"
+        android:label="activity_search"
+        tools:layout="@layout/activity_search" />
+    <activity
+        android:id="@+id/usersActivity"
+        android:name="com.example.retrofitapi.activity.UsersActivity"
+        android:label="activity_users"
+        tools:layout="@layout/activity_users" />
+</navigation>

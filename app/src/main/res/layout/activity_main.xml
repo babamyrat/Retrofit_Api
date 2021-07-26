@@ -20,26 +20,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
+        android:gravity="right"
         android:orientation="horizontal">
 
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:src="@drawable/ic_menu" />
-        <TextView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_margin="10dp"
-            android:layout_weight="3"
-            />
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
             android:src="@drawable/ic_shopping" />
     </LinearLayout>
 
@@ -47,6 +34,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="90dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
         android:orientation="vertical">
 
         <TextView
@@ -58,23 +47,8 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_margin="30dp"
-        android:shadowRadius="24"
-        android:hint="Search"
-        android:textSize="24sp"
-        android:drawableStart="@drawable/ic_search"
-        />
 
 
-    <Button
-        android:id="@+id/btnClickNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next Search"/>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tapLayout"
