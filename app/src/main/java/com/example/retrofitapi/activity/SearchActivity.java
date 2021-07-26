@@ -84,7 +84,29 @@ public class SearchActivity extends AppCompatActivity {
 
         });
 
+        Search();
+
     }
+
+
+    private void Search() {
+        SearchView simpleSearchView = (SearchView) findViewById(R.id.searchView); // inititate a search view
+
+// perform set on query text listener event
+        simpleSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                fetchService(s);
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String s) {
+                fetchService(s);
+                return false;
+            }
+        });
+    }
+
 
 
     //Method to generate List of data using RecyclerView with custom adapter
@@ -98,35 +120,7 @@ public class SearchActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.search_menu, menu);
 
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
-
-        searchView.setSearchableInfo(
-                searchManager.getSearchableInfo(getComponentName())
-        );
-
-        searchView.setIconifiedByDefault(false);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-                fetchService(s);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s) {
-                fetchService(s);
-                return false;
-            }
-        });
-
-        return super.onCreateOptionsMenu(menu);
-    }
 
 
 
