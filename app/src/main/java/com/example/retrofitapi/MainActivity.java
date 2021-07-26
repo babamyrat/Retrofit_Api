@@ -6,11 +6,16 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.retrofitapi.activity.HistoryActivity;
+import com.example.retrofitapi.activity.OrderActivity;
 import com.example.retrofitapi.activity.SearchActivity;
+import com.example.retrofitapi.activity.UsersActivity;
 import com.example.retrofitapi.adapter.ExampleAdapter;
 import com.example.retrofitapi.model.ExampleModel;
 import com.example.retrofitapi.model.ServerResponse;
@@ -31,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private ExampleAdapter adapter;
     ProgressDialog progressDialog;
     Button btnClickNext;
+   // SearchView searchView;
 
 
     @Override
@@ -38,44 +44,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        progressDialogs();
 
-        ServiceClient();
-
-        // searchView = findViewById(R.id.searchView);
+       // searchView = findViewById(R.id.searchView);
         btnClickNext = findViewById(R.id.btnClickNext);
-
-        btnClickNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
-                startActivity(intent);
-            }
-        });
+        ButtonClickNextSearchActivity();
 
 
 
 
-
-
-
-    }
-
-
-    private void progressDialogs() {
         progressDialog = new ProgressDialog(MainActivity.this);
         progressDialog.setMessage("Loading....");
         progressDialog.show();
-    }
 
 
-    private void ServiceClient() {
         //Create handle for the RetrofitInstance interface
         GetInterface service = ApiClient.getRetrofitInstance().create(GetInterface.class);
         Call<ServerResponse> call = service.getAllPhotos();
         call.enqueue(new retrofit2.Callback<ServerResponse>() {
             @Override
-            public void onResponse(@NotNull Call<ServerResponse> call, @NotNull Response<ServerResponse> response) {     // Response
+            public void onResponse(retrofit2.@NotNull Call<ServerResponse> call, @NotNull Response<ServerResponse> response) {     // Response
                 progressDialog.dismiss();   // progress
 
                 if (response.isSuccessful()){
@@ -86,13 +73,14 @@ public class MainActivity extends AppCompatActivity {
 
 
             @Override
-            public void onFailure(@NotNull Call<ServerResponse> call, @NotNull Throwable t) {       // in not on uri
+            public void onFailure(retrofit2.@NotNull Call<ServerResponse> call, @NotNull Throwable t) {       // in not on uri
 
                 progressDialog.dismiss();
                 Toast.makeText(MainActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }
 
         });
+
     }
 
 
@@ -106,11 +94,64 @@ public class MainActivity extends AppCompatActivity {
                 tab.setText(photoList.get(position).getStrCategory()));
         tabLayoutMediator.attach();
 
+
     }
 
 
+    // Working menu Bottom
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.bottom_menu, menu);
+        return true;
+    }
+
+    // Handle item.getItemId
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.page_1:
+                OneActivity();
+                return true;
+            case R.id.page_2:
+                TwoActivity();
+                return true;
+            case R.id.page_3:
+                TreeActivity();
+                return true;
+            case R.id.page_4:
+                FourActivity();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 
+    private void FourActivity(){
+        Intent intent = new Intent(MainActivity.this, OrderActivity.class);
+        startActivity(intent);
+    }
+
+    private void TreeActivity(){
+       Intent intent = new Intent(MainActivity.this, UsersActivity.class);
+       startActivity(intent);
+    }
+
+    private void TwoActivity() {
+        Intent intent = new Intent(MainActivity.this, HistoryActivity.class);
+        startActivity(intent);
+    }
+
+    private void OneActivity() {
+        Intent intent = new Intent(MainActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void ButtonClickNextSearchActivity(){
+        btnClickNext.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+            startActivity(intent);
+        });
+    }
 
 
 
