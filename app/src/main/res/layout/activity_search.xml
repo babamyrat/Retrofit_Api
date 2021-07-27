@@ -13,7 +13,8 @@
         android:layout_margin="30dp"
         android:shadowRadius="24"
         android:hint="Search"
-        android:background="#EFEEEE"
+        app:cornerRadius="30dp"
+        android:background="@drawable/bg_searchview_color"
         android:textSize="24sp"
         android:drawableStart="@drawable/ic_search"
         />

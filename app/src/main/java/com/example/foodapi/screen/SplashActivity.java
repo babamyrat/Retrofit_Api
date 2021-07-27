@@ -37,21 +37,6 @@ public class SplashActivity extends AppCompatActivity {
         // This is where we change our app name font to blacklist font
         Typeface typeface = ResourcesCompat.getFont(this, R.font.blacklist);
 
-        TextView appname= findViewById(R.id.appname);
-        appname.setTypeface(typeface);
-
-
-        YoYo.with(Techniques.Bounce)
-                .duration(7000) // Time it for logo takes to bounce up and down
-                .playOn(findViewById(R.id.logo));
-
-
-
-        YoYo.with(Techniques.FadeInUp)
-                .duration(5000) // Time it for app name to fade in up
-                .playOn(findViewById(R.id.appname));
-
-
         new Handler().postDelayed(new Runnable() {
 
             @Override
