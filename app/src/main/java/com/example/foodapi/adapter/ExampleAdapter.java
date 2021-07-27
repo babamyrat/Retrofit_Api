@@ -1,4 +1,4 @@
-package com.example.retrofitapi.adapter;
+package com.example.foodapi.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,12 +8,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.retrofitapi.fragment.PageFragment;
-import com.example.retrofitapi.model.ExampleModel;
-import com.example.retrofitapi.R;
+import com.example.foodapi.model.ExampleModel;
+import com.example.foodapi.R;
 import com.jakewharton.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 

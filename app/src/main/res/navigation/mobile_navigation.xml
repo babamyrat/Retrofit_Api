@@ -6,22 +6,22 @@
     app:startDestination="@id/historyActivity">
     <activity
         android:id="@+id/historyActivity"
-        android:name="com.example.retrofitapi.activity.HistoryActivity"
+        android:name="com.example.foodapi.activity.HistoryActivity"
         android:label="activity_history"
         tools:layout="@layout/activity_history" />
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.example.retrofitapi.MainActivity"
+        android:name="com.example.foodapi.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
     <activity
         android:id="@+id/searchActivity"
-        android:name="com.example.retrofitapi.activity.SearchActivity"
+        android:name="com.example.foodapi.activity.SearchActivity"
         android:label="activity_search"
         tools:layout="@layout/activity_search" />
     <activity
         android:id="@+id/usersActivity"
-        android:name="com.example.retrofitapi.activity.UsersActivity"
+        android:name="com.example.foodapi.activity.UsersActivity"
         android:label="activity_users"
         tools:layout="@layout/activity_users" />
 </navigation>

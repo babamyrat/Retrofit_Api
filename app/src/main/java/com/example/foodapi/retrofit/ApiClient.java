@@ -1,4 +1,4 @@
-package com.example.retrofitapi.retrofit;
+package com.example.foodapi.retrofit;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

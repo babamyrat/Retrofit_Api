@@ -1,4 +1,4 @@
-package com.example.retrofitapi.fragment;
+package com.example.foodapi.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,8 @@ import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.retrofitapi.R;
-import com.example.retrofitapi.activity.HomeActivity;
+import com.example.foodapi.R;
+import com.example.foodapi.activity.HomeActivity;
 
 public class StepOneFragment extends Fragment {
     @Override

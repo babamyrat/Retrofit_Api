@@ -1,4 +1,4 @@
-package com.example.retrofitapi.model;
+package com.example.foodapi.model;
 
 
 import com.google.gson.annotations.Expose;

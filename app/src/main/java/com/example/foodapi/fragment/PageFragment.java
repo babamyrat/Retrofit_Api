@@ -1,4 +1,4 @@
-package com.example.retrofitapi.fragment;
+package com.example.foodapi.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.retrofitapi.R;
+import com.example.foodapi.R;
 //-------------------------------------------------------------------------//
 public class PageFragment extends Fragment {
 

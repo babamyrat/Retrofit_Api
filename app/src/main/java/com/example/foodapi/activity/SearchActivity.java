@@ -1,28 +1,21 @@
-package com.example.retrofitapi.activity;
+package com.example.foodapi.activity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.widget.SearchView;
 import android.widget.Toast;
 
-import com.example.retrofitapi.GetInterface;
-import com.example.retrofitapi.MainActivity;
-import com.example.retrofitapi.model.SearchResponse;
-import com.example.retrofitapi.retrofit.ApiClient;
-import com.example.retrofitapi.R;
-import com.example.retrofitapi.adapter.SearchAdapter;
-import com.example.retrofitapi.model.SearchModel;
+import com.example.foodapi.GetInterface;
+import com.example.foodapi.model.SearchResponse;
+import com.example.foodapi.retrofit.ApiClient;
+import com.example.foodapi.R;
+import com.example.foodapi.adapter.SearchAdapter;
+import com.example.foodapi.model.SearchModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.jetbrains.annotations.NotNull;

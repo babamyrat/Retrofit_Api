@@ -1,7 +1,7 @@
-package com.example.retrofitapi;
+package com.example.foodapi;
 
-import com.example.retrofitapi.model.SearchResponse;
-import com.example.retrofitapi.model.ServerResponse;
+import com.example.foodapi.model.SearchResponse;
+import com.example.foodapi.model.ServerResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

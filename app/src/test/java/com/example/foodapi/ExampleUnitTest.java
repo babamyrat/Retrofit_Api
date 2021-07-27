@@ -1,4 +1,4 @@
-package com.example.retrofitapi;
+package com.example.foodapi;
 
 import org.junit.Test;
 

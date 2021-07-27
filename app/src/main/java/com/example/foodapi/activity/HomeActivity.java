@@ -1,4 +1,4 @@
-package com.example.retrofitapi.activity;
+package com.example.foodapi.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
@@ -6,15 +6,16 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.example.retrofitapi.GetInterface;
-import com.example.retrofitapi.MainActivity;
-import com.example.retrofitapi.R;
-import com.example.retrofitapi.adapter.ExampleAdapter;
-import com.example.retrofitapi.model.ExampleModel;
-import com.example.retrofitapi.model.ServerResponse;
-import com.example.retrofitapi.retrofit.ApiClient;
+import com.example.foodapi.GetInterface;
+import com.example.foodapi.R;
+import com.example.foodapi.adapter.ExampleAdapter;
+import com.example.foodapi.model.ExampleModel;
+import com.example.foodapi.model.ServerResponse;
+import com.example.foodapi.retrofit.ApiClient;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -36,7 +37,12 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // top menu bar
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_home);
+
         progressDialogs();
 
         ServiceClient();
