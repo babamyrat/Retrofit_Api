@@ -11,33 +11,12 @@
     android:layout_marginTop="10dp"
     >
 
-
-<!--    <androidx.cardview.widget.CardView-->
-<!--        xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        card_view:cardBackgroundColor="@android:color/transparent"-->
-<!--        card_view:cardElevation="1dp"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content">-->
-<!--        <de.hdodenhof.circleimageview.CircleImageView-->
-<!--            android:id="@+id/strMealThumb"-->
-<!--            android:layout_marginTop="0dp"-->
-<!--            android:layout_width="200dp"-->
-<!--            android:layout_height="200dp"-->
-<!--            app:civ_border_color="#FFFFFF"-->
-<!--            app:civ_border_width="2dp"-->
-<!--            tools:srcCompat="@tools:sample/avatars" />-->
-<!--    </androidx.cardview.widget.CardView>-->
-
-
-
-
     <androidx.cardview.widget.CardView
-        android:layout_width="200dp"
-        android:layout_height="270dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="180dp"
+        android:layout_height="260dp"
+        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="10dp"
         android:elevation="0dp"
         app:cardCornerRadius="12dp"
         tools:targetApi="lollipop">
@@ -57,11 +36,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="70dp"
             android:layout_marginBottom="4dp"
             android:text="Name"
-            android:textSize="20sp"
             android:textColor="#000000"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -72,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="105dp"
             android:layout_marginBottom="4dp"
             android:text="Num"
             android:textColor="#FA4A0C"
@@ -80,10 +59,6 @@
             android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
-
-
-
-
 
 
 </RelativeLayout>

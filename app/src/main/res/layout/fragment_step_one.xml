@@ -11,14 +11,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="bottom"
-
-
     >
 
     <Button
         android:id="@+id/btnStartButton"
-        android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_width="319dp"
+        android:layout_height="97dp"
         android:layout_gravity="center"
         android:layout_margin="20dp"
         android:text="Start odering"
