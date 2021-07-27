@@ -47,8 +47,6 @@ public class HomeActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.page_1:
-//                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-//                    overridePendingTransition(0,0);
                     return true;
 
                 case R.id.page_2:
