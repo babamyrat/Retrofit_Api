@@ -15,8 +15,8 @@
 
     <Button
         android:id="@+id/btnStartButton"
-        android:layout_width="319dp"
-        android:layout_height="97dp"
+        android:layout_width="299dp"
+        android:layout_height="81dp"
         android:layout_gravity="center"
         android:layout_margin="20dp"
         android:text="Start odering"

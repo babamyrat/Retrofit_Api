@@ -120,12 +120,12 @@ public class SearchActivity extends AppCompatActivity {
 
         });
 
-        Search();
+        search();
 
     }
 
 
-    private void Search() {
+    private void search() {
         SearchView simpleSearchView = (SearchView) findViewById(R.id.searchView); // inititate a search view
 
 // perform set on query text listener event
