@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.UsersFragment">
+
     <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#F9F9F9"
-        tools:context=".activity.UsersActivity">
+        android:background="@color/fon_color"
+        tools:context=".fragment.UsersFragment">
 
         <TextView
             android:id="@+id/textView3"
@@ -18,7 +16,7 @@
             android:layout_marginTop="252dp"
             android:text="@string/no_orders_yet"
             android:layout_centerHorizontal="true"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textSize="34sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +50,7 @@
             android:textAllCaps="false"
             android:textDirection="inherit"
             android:textSize="20sp"
-            app:backgroundTint="#FA4A0C"
+            app:backgroundTint="@color/yellow"
             app:cornerRadius="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -62,4 +60,3 @@
 
     </RelativeLayout>
 
-</FrameLayout>
