@@ -38,7 +38,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="70dp"
             android:layout_marginBottom="4dp"
-            android:text="Name"
+            android:text="@string/name"
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -53,7 +53,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="105dp"
             android:layout_marginBottom="4dp"
-            android:text="Num"
+            android:text="@string/num"
             android:textColor="#FA4A0C"
             android:textSize="20sp"
             android:textStyle="bold" />

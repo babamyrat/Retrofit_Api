@@ -10,8 +10,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="bottom"
-    >
+    android:gravity="bottom">
 
     <Button
         android:id="@+id/btnStartButton"
@@ -33,6 +32,5 @@
         app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </RelativeLayout>

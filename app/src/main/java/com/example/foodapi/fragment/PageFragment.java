@@ -9,9 +9,8 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.example.foodapi.R;
-//-------------------------------------------------------------------------//
-public class PageFragment extends Fragment {
 
+public class PageFragment extends Fragment {
     private int pageNumber;
 
     public static PageFragment newInstance(int page) {
@@ -23,7 +22,6 @@ public class PageFragment extends Fragment {
     }
 
     public PageFragment() {
-
     }
 
     @Override
@@ -42,4 +40,3 @@ public class PageFragment extends Fragment {
         return result;
     }
 }
-//---------------------------------------------------------------------------------------//

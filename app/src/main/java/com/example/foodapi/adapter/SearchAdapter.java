@@ -20,8 +20,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchViewHolder> {
-    private List<SearchModel> dataList;
-    private Context context;
+    private final List<SearchModel> dataList;
+    private final Context context;
 
     public SearchAdapter(List<SearchModel> dataList, Context context) {
         this.dataList = dataList;
@@ -40,7 +40,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull SearchAdapter.SearchViewHolder holder, int position) {
-
         holder.idMeal.setText(dataList.get(position).getIdMeal());
         holder.strMeal.setText(dataList.get(position).getStrMeal());
 
@@ -50,8 +49,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
                 .placeholder(R.drawable.ic_launcher_background)
                 .error(R.drawable.ic_launcher_foreground)
                 .into(holder.strMealThumb);
-
-
     }
 
     @Override
@@ -60,11 +57,10 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         return dataList.size();
     }
 
-
-    public class SearchViewHolder extends RecyclerView.ViewHolder {
+    public static class SearchViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         TextView idMeal, strMeal;
-        private ImageView strMealThumb;
+        private final ImageView strMealThumb;
 
         public SearchViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -74,6 +70,4 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
             strMealThumb = mView.findViewById(R.id.strMealThumb);
         }
     }
-
-
 }

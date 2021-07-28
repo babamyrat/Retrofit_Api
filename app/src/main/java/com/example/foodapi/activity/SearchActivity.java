@@ -23,6 +23,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 
@@ -30,7 +31,6 @@ import retrofit2.Response;
 
 public class SearchActivity extends AppCompatActivity {
 
-    private SearchAdapter adapter;
     private RecyclerView recyclerView;
     ProgressDialog progressDialog;
     BottomNavigationView bottomNavigationView;
@@ -42,7 +42,7 @@ public class SearchActivity extends AppCompatActivity {
         // top menu bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
         setContentView(R.layout.activity_search);
 
@@ -84,17 +84,11 @@ public class SearchActivity extends AppCompatActivity {
                     overridePendingTransition(0,0);
                     return true;
             }
-
             return false;
         });
-
-
-
     }
 
-
     public void fetchService(String key){
-
         //Create handle for the RetrofitInstance interface
         GetInterface service = ApiClient.getRetrofitInstance().create(GetInterface.class);
         Call<SearchResponse> call = service.getAllInfo(key);
@@ -110,20 +104,15 @@ public class SearchActivity extends AppCompatActivity {
                 }
             }
 
-
             @Override
             public void onFailure(retrofit2.@NotNull Call<SearchResponse> call, @NotNull Throwable t) {       // in not on uri
-
                 progressDialog.dismiss();
                 Toast.makeText(SearchActivity.this, "Error on:" + t.toString(), Toast.LENGTH_SHORT).show();
             }
-
         });
 
         search();
-
     }
-
 
     private void search() {
         SearchView simpleSearchView = (SearchView) findViewById(R.id.searchView); // inititate a search view
@@ -143,21 +132,14 @@ public class SearchActivity extends AppCompatActivity {
         });
     }
 
-
-
     //Method to generate List of data using RecyclerView with custom adapter
     private void generateDataList(List<SearchModel> photoList) {
 
-        adapter = new SearchAdapter(photoList, this);
+        SearchAdapter adapter = new SearchAdapter(photoList, this);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
     }
-
-
-
-
-
 }

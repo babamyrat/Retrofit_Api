@@ -4,7 +4,6 @@ package com.example.foodapi.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-
 public class ExampleModel {
 
     @SerializedName("idCategory")

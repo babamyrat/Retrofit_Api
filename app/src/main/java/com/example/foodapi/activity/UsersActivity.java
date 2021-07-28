@@ -10,6 +10,8 @@ import android.view.WindowManager;
 import com.example.foodapi.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.Objects;
+
 public class UsersActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
 
@@ -19,7 +21,7 @@ public class UsersActivity extends AppCompatActivity {
         // top menu bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
         setContentView(R.layout.activity_users);
 

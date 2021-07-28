@@ -12,6 +12,8 @@ import android.view.WindowManager;
 import com.example.foodapi.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.Objects;
+
 
 public class HistoryActivity extends AppCompatActivity {
      BottomNavigationView bottomNavigationView;
@@ -22,7 +24,7 @@ public class HistoryActivity extends AppCompatActivity {
         // top menu bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
         setContentView(R.layout.activity_history);
 
@@ -49,11 +51,7 @@ public class HistoryActivity extends AppCompatActivity {
                 case R.id.page_4:
                     return true;
             }
-
             return false;
         });
-
-
     }
-
 }

@@ -18,14 +18,13 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.CustomViewHolder> {
-    private List<ExampleModel> dataList;
-    private Context context;
+    private final List<ExampleModel> dataList;
+    private final Context context;
 
     public ExampleAdapter(Context context, List<ExampleModel> dataList){
         this.context = context;
         this.dataList = dataList;
     }
-
 
     @NonNull
     @org.jetbrains.annotations.NotNull
@@ -57,18 +56,14 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.CustomVi
         return dataList.size();
     }
 
-
-
-    class CustomViewHolder extends RecyclerView.ViewHolder {
+    static class CustomViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-
         TextView txtTitle, txtNumber;
-        private ImageView coverImage;
+        private final ImageView coverImage;
 
         CustomViewHolder(View itemView) {
             super(itemView);
             mView = itemView;
-
             txtNumber = mView.findViewById(R.id.textView2);
             txtTitle = mView.findViewById(R.id.textView);
             coverImage = mView.findViewById(R.id.imageView);

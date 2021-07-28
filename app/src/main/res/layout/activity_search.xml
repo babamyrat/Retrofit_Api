@@ -12,7 +12,7 @@
         android:layout_height="60dp"
         android:layout_margin="30dp"
         android:shadowRadius="24"
-        android:hint="Search"
+        android:hint="@string/search"
         app:cornerRadius="30dp"
         android:background="@drawable/bg_searchview_color"
         android:textSize="24sp"

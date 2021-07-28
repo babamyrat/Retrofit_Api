@@ -22,31 +22,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        // top nav bar delete
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
-
         setContentView(R.layout.activity_main);
-
-
 
         // Initialize ViewPager view
         ViewPager viewPager = findViewById(R.id.viewPagerOnBoarding);
         // create ViewPager adapter
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-
         // Add All Fragments to ViewPager
         viewPagerAdapter.addFragment(new StepOneFragment());
-
-
         // Set Adapter for ViewPager
         viewPager.setAdapter(viewPagerAdapter);
 
     }
 
     // ViewPager Adapter class
-    class ViewPagerAdapter extends FragmentPagerAdapter {
+    static class ViewPagerAdapter extends FragmentPagerAdapter {
 
         private final List<Fragment> mList = new ArrayList<>();
 

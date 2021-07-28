@@ -23,16 +23,15 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Response;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private ExampleAdapter adapter;
     ProgressDialog progressDialog;
     BottomNavigationView bottomNavigationView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +39,12 @@ public class HomeActivity extends AppCompatActivity {
         // top menu bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_home);
 
         progressDialogs();
 
-        ServiceClient();
-
+        serviceClient();
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.page_1);
 
@@ -70,12 +68,9 @@ public class HomeActivity extends AppCompatActivity {
                     overridePendingTransition(0,0);
                     return true;
             }
-
             return false;
         });
-
     }
-
 
     private void progressDialogs() {
         progressDialog = new ProgressDialog(HomeActivity.this);
@@ -83,43 +78,36 @@ public class HomeActivity extends AppCompatActivity {
         progressDialog.show();
     }
 
-
-    private void ServiceClient() {
+    private void serviceClient() {
         //Create handle for the RetrofitInstance interface
         GetInterface service = ApiClient.getRetrofitInstance().create(GetInterface.class);
         Call<ServerResponse> call = service.getAllPhotos();
         call.enqueue(new retrofit2.Callback<ServerResponse>() {
             @Override
             public void onResponse(@NotNull Call<ServerResponse> call, @NotNull Response<ServerResponse> response) {     // Response
-                progressDialog.dismiss();   // progress
-
+                progressDialog.dismiss();   // progres
                 if (response.isSuccessful()){
                     assert response.body() != null;
                     generateDataList(response.body().getCategories());
                 }
             }
 
-
             @Override
             public void onFailure(@NotNull Call<ServerResponse> call, @NotNull Throwable t) {       // in not on uri
-
                 progressDialog.dismiss();
                 Toast.makeText(HomeActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }
-
         });
     }
 
-
     //Method to generate List of data using RecyclerView with custom adapter
     private void generateDataList(List<ExampleModel> photoList) {
-        adapter = new ExampleAdapter(this,photoList);
+        ExampleAdapter adapter = new ExampleAdapter(this, photoList);
         ViewPager2 pager=findViewById(R.id.pager);
         pager.setAdapter(adapter);
         TabLayout tabLayout = findViewById(R.id.tapLayout);
         TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(tabLayout, pager, (tab, position) ->
                 tab.setText(photoList.get(position).getStrCategory()));
         tabLayoutMediator.attach();
-
     }
 }

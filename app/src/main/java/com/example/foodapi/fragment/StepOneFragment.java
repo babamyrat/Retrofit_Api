@@ -20,14 +20,9 @@ public class StepOneFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_step_one,
                 container, false);
         Button button = (Button) view.findViewById(R.id.btnStartButton);
-        button.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Intent intent = new Intent(getActivity(), HomeActivity.class);
-                startActivity(intent);
-            }
+        button.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), HomeActivity.class);
+            startActivity(intent);
         });
 
         return view;

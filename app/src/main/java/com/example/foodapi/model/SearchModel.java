@@ -3,10 +3,7 @@ package com.example.foodapi.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-
-
 public class SearchModel {
-
     @SerializedName("idMeal")
     @Expose
     private String idMeal;
