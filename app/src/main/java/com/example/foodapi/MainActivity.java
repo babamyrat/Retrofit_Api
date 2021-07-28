@@ -12,8 +12,11 @@ import android.view.WindowManager;
 
 import com.example.foodapi.fragment.StepOneFragment;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         // top nav bar delete
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_main);
 
         // Initialize ViewPager view
@@ -48,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             super(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         }
         @Override
-        public Fragment getItem(int i) {
+        public @NotNull Fragment getItem(int i) {
             return mList.get(i);
         }
         @Override
