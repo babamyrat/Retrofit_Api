@@ -6,55 +6,63 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="220dp"
-        android:layout_height="270dp"
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="100dp"
+        android:layout_marginVertical="110dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         app:cardCornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.172">
+        app:layout_constraintTop_toTopOf="parent">
 
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imageView"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:layout_gravity="center|top"
-            app:civ_border_color="#FFFFFF"
-            app:civ_border_width="2dp"
-            tools:srcCompat="@tools:sample/avatars" />
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="80dp"
-            android:layout_marginBottom="4dp"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="60dp"
             android:text="Name"
             android:textColor="#000000"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:translationZ="3dp" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="120dp"
-            android:layout_marginBottom="4dp"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="20dp"
             android:text="Num"
             android:textColor="#FA4A0C"
             android:textSize="20sp"
-            android:textStyle="bold" />
-
+            android:textStyle="bold"
+            android:translationZ="2dp"
+            app:layout_constraintVertical_bias="0.755" />
     </androidx.cardview.widget.CardView>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center|top"
+        android:elevation="1dp"
+        android:translationZ="3dp"
+        app:civ_border_color="#FFFFFF"
+        app:civ_border_width="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.156"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

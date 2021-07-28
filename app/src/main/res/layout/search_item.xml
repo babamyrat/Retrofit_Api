@@ -1,64 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--, , -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    >
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="180dp"
-        android:layout_height="260dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginHorizontal="10dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
-        android:elevation="0dp"
+        android:layout_centerVertical="true"
         app:cardCornerRadius="12dp"
-        tools:targetApi="lollipop">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/strMealThumb"
-            android:layout_marginTop="0dp"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center|top"
-            app:civ_border_color="#FFFFFF"
-            app:civ_border_width="2dp"
-            tools:srcCompat="@tools:sample/avatars" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
         <TextView
             android:id="@+id/strMeal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="70dp"
-            android:layout_marginBottom="4dp"
-            android:text="@string/name"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="60dp"
+            android:text="Name"
             android:textColor="#000000"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:translationZ="3dp" />
 
         <TextView
             android:id="@+id/idMeal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="105dp"
-            android:layout_marginBottom="4dp"
-            android:text="@string/num"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="20dp"
+            android:text="Num"
             android:textColor="#FA4A0C"
             android:textSize="20sp"
-            android:textStyle="bold" />
-
+            android:textStyle="bold"
+            android:translationZ="2dp"
+            app:layout_constraintVertical_bias="0.755" />
     </androidx.cardview.widget.CardView>
 
 
-</RelativeLayout>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/strMealThumb"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center|top"
+        android:elevation="1dp"
+        android:translationZ="3dp"
+        app:civ_border_color="#FFFFFF"
+        app:civ_border_width="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@tools:sample/avatars" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
