@@ -78,6 +78,8 @@ public class SearchFragment extends Fragment {
             }
         });
 
+
+
         search();
     }
 
