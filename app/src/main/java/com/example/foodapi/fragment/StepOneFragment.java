@@ -9,8 +9,8 @@ import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.foodapi.NavActivity;
 import com.example.foodapi.R;
-import com.example.foodapi.activity.HomeActivity;
 
 public class StepOneFragment extends Fragment {
     @Override
@@ -21,7 +21,7 @@ public class StepOneFragment extends Fragment {
                 container, false);
         Button button = (Button) view.findViewById(R.id.btnStartButton);
         button.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), HomeActivity.class);
+            Intent intent = new Intent(getActivity(), NavActivity.class);
             startActivity(intent);
         });
 
