@@ -3,6 +3,8 @@ package com.example.foodapi.fragment;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -50,11 +52,20 @@ public class HomeFragment extends Fragment {
     return view;
     }
 
+    @Override
+    public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+
+    }
+
+
     private void serviceClient() {
         //Create handle for the RetrofitInstance interface
         GetInterface service = ApiClient.getRetrofitInstance().create(GetInterface.class);
         Call<ServerResponse> call = service.getAllPhotos();
         call.enqueue(new retrofit2.Callback<ServerResponse>() {
+
             @Override
             public void onResponse(@NotNull Call<ServerResponse> call, @NotNull Response<ServerResponse> response) {     // Response
                 progressDialog.dismiss();   // progress
