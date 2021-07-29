@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.foodapi.R;
 import com.example.foodapi.model.SearchModel;
 import com.jakewharton.picasso.OkHttp3Downloader;
@@ -43,11 +44,9 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         holder.idMeal.setText(dataList.get(position).getIdMeal());
         holder.strMeal.setText(dataList.get(position).getStrMeal());
 
-        Picasso.Builder builder = new Picasso.Builder(context);
-        builder.downloader(new OkHttp3Downloader(context));
-        builder.build().load(dataList.get(position).getStrMealThumb())
+        Glide.with(context)
+                .load(dataList.get(position).getStrMealThumb())
                 .placeholder(R.drawable.ic_launcher_background)
-                .error(R.drawable.ic_launcher_foreground)
                 .into(holder.strMealThumb);
     }
 

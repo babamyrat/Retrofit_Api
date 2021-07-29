@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.foodapi.model.ExampleModel;
 import com.example.foodapi.R;
 import com.jakewharton.picasso.OkHttp3Downloader;
@@ -41,11 +42,9 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.CustomVi
         holder.txtTitle.setText(dataList.get(position).getStrCategory());
         holder.txtNumber.setText(dataList.get(position).getIdCategory());
 
-        Picasso.Builder builder = new Picasso.Builder(context);
-        builder.downloader(new OkHttp3Downloader(context));
-        builder.build().load(dataList.get(position).getStrCategoryThumb())
-                .placeholder((R.drawable.ic_launcher_background))
-                .error(R.drawable.ic_launcher_foreground)
+        Glide.with(context)
+                .load(dataList.get(position).getStrCategoryThumb())
+                .placeholder(R.drawable.ic_launcher_background)
                 .into(holder.coverImage);
 
     }

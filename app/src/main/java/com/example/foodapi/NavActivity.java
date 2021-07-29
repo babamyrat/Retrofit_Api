@@ -1,29 +1,20 @@
 package com.example.foodapi;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
 
+import com.example.foodapi.Base.BaseActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.Objects;
-
-public class NavActivity extends AppCompatActivity {
+public class NavActivity extends BaseActivity {
     BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // top menu bar
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        Objects.requireNonNull(getSupportActionBar()).hide();
-
         setContentView(R.layout.activity_nav);
+
         setUpNavigation();
     }
     public void setUpNavigation(){
