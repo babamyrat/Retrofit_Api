@@ -1,4 +1,4 @@
-package com.example.foodapi.fragment;
+package com.example.foodapi.fragmentActivity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -17,7 +17,7 @@ import com.example.foodapi.GetInterface;
 import com.example.foodapi.R;
 import com.example.foodapi.adapter.ExampleAdapter;
 import com.example.foodapi.model.ExampleModel;
-import com.example.foodapi.model.ServerResponse;
+import com.example.foodapi.response.ServerResponse;
 import com.example.foodapi.retrofit.ApiClient;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;

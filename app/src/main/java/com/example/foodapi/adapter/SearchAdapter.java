@@ -24,6 +24,21 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     private final List<SearchModel> dataList;
     private final Context context;
 
+
+    public static class SearchViewHolder extends RecyclerView.ViewHolder {
+        TextView idMeal, strMeal;
+        private final ImageView strMealThumb;
+
+        public SearchViewHolder(@NonNull @NotNull View itemView) {
+            super(itemView);
+            idMeal = itemView.findViewById(R.id.idMeal);
+            strMeal = itemView.findViewById(R.id.strMeal);
+            strMealThumb = itemView.findViewById(R.id.strMealThumb);
+        }
+    }
+
+
+
     public SearchAdapter(List<SearchModel> dataList, Context context) {
         this.dataList = dataList;
         this.context = context;
@@ -56,17 +71,5 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         return dataList.size();
     }
 
-    public static class SearchViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        TextView idMeal, strMeal;
-        private final ImageView strMealThumb;
 
-        public SearchViewHolder(@NonNull @NotNull View itemView) {
-            super(itemView);
-            mView = itemView;
-            idMeal = mView.findViewById(R.id.idMeal);
-            strMeal = mView.findViewById(R.id.strMeal);
-            strMealThumb = mView.findViewById(R.id.strMealThumb);
-        }
-    }
 }

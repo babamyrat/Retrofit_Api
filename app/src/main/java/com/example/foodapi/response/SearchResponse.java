@@ -1,5 +1,6 @@
-package com.example.foodapi.model;
+package com.example.foodapi.response;
 
+import com.example.foodapi.model.SearchModel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

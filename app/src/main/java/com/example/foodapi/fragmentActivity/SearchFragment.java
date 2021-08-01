@@ -1,4 +1,4 @@
-package com.example.foodapi.fragment;
+package com.example.foodapi.fragmentActivity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -17,7 +17,7 @@ import com.example.foodapi.GetInterface;
 import com.example.foodapi.R;
 import com.example.foodapi.adapter.SearchAdapter;
 import com.example.foodapi.model.SearchModel;
-import com.example.foodapi.model.SearchResponse;
+import com.example.foodapi.response.SearchResponse;
 import com.example.foodapi.retrofit.ApiClient;
 
 import org.jetbrains.annotations.NotNull;

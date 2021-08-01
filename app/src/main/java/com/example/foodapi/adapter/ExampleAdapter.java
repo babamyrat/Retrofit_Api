@@ -13,14 +13,27 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.foodapi.model.ExampleModel;
 import com.example.foodapi.R;
-import com.jakewharton.picasso.OkHttp3Downloader;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.CustomViewHolder> {
+public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder> {
     private final List<ExampleModel> dataList;
     private final Context context;
+
+    public static class ExampleViewHolder extends RecyclerView.ViewHolder {
+        TextView txtTitle, txtNumber;
+        private final ImageView coverImage;
+
+        ExampleViewHolder(View itemView) {
+            super(itemView);
+
+            txtNumber = itemView.findViewById(R.id.textView2);
+            txtTitle = itemView.findViewById(R.id.textView);
+            coverImage = itemView.findViewById(R.id.imageView);
+
+        }
+
+    }
 
     public ExampleAdapter(Context context, List<ExampleModel> dataList){
         this.context = context;
@@ -30,14 +43,14 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.CustomVi
     @NonNull
     @org.jetbrains.annotations.NotNull
     @Override
-    public ExampleAdapter.CustomViewHolder onCreateViewHolder(@NonNull @org.jetbrains.annotations.NotNull ViewGroup parent, int viewType) {
+    public ExampleAdapter.ExampleViewHolder onCreateViewHolder(@NonNull @org.jetbrains.annotations.NotNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.list_item, parent, false);
-        return new CustomViewHolder(view);
+        return new ExampleViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @org.jetbrains.annotations.NotNull ExampleAdapter.CustomViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @org.jetbrains.annotations.NotNull ExampleAdapter.ExampleViewHolder holder, int position) {
 
         holder.txtTitle.setText(dataList.get(position).getStrCategory());
         holder.txtNumber.setText(dataList.get(position).getIdCategory());
@@ -49,25 +62,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.CustomVi
 
     }
 
-
     @Override
     public int getItemCount() {
         return dataList.size();
     }
 
-    static class CustomViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        TextView txtTitle, txtNumber;
-        private final ImageView coverImage;
 
-        CustomViewHolder(View itemView) {
-            super(itemView);
-            mView = itemView;
-            txtNumber = mView.findViewById(R.id.textView2);
-            txtTitle = mView.findViewById(R.id.textView);
-            coverImage = mView.findViewById(R.id.imageView);
-
-        }
-
-    }
 }

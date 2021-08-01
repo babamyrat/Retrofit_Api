@@ -8,6 +8,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 
 import com.example.foodapi.Base.BaseActivity;
+import com.example.foodapi.adapter.ViewPagerAdapter;
 import com.example.foodapi.fragment.StepOneFragment;
 
 import org.jetbrains.annotations.NotNull;
@@ -36,27 +37,5 @@ public class MainActivity extends BaseActivity {
         viewPager.setAdapter(viewPagerAdapter);
     }
 
-
-    // ViewPager Adapter class
-    static class ViewPagerAdapter extends FragmentPagerAdapter {
-
-        private final List<Fragment> mList = new ArrayList<>();
-
-        public ViewPagerAdapter(FragmentManager supportFragmentManager) {
-            super(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        }
-
-        @Override
-        public @NotNull Fragment getItem(int i) {
-            return mList.get(i);
-        }
-        @Override
-        public int getCount() {
-            return mList.size();
-        }
-        public void addFragment(Fragment fragment) {
-            mList.add(fragment);
-        }
-    }
 
 }
