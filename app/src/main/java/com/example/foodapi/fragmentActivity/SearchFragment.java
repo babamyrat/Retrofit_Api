@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.SearchView;
 import android.widget.Toast;
 
-import com.example.foodapi.GetInterface;
+import com.example.foodapi.ApiInterface;
 import com.example.foodapi.R;
 import com.example.foodapi.adapter.SearchAdapter;
 import com.example.foodapi.model.SearchModel;
@@ -57,7 +57,7 @@ public class SearchFragment extends Fragment {
     }
     public void fetchService(String key){
         //Create handle for the RetrofitInstance interface
-        GetInterface service = ApiClient.getRetrofitInstance().create(GetInterface.class);
+        ApiInterface service = ApiClient.getRetrofitInstance().create(ApiInterface.class);
         Call<SearchResponse> call = service.getAllInfo(key);
 
         call.enqueue(new retrofit2.Callback<SearchResponse>() {

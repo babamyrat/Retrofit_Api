@@ -7,7 +7,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public interface GetInterface {
+public interface ApiInterface {
     // home GET
    @GET("/api/json/v1/1/categories.php")
     Call<ServerResponse> getAllPhotos();
