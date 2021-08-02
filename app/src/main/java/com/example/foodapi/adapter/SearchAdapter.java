@@ -13,15 +13,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.foodapi.R;
 import com.example.foodapi.model.SearchModel;
+import com.example.foodapi.response.SearchResponse;
 import com.jakewharton.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchViewHolder> {
-    private final List<SearchModel> dataList;
+    private List<SearchModel> dataList;
     private final Context context;
 
 
@@ -36,7 +38,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
             strMealThumb = itemView.findViewById(R.id.strMealThumb);
         }
     }
-
 
 
     public SearchAdapter(List<SearchModel> dataList, Context context) {
@@ -67,8 +68,16 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
 
     @Override
     public int getItemCount() {
-        if(dataList==null) return 0;
+        if (dataList == null) return 0;
         return dataList.size();
+    }
+
+    public void addData(List<SearchModel> listModel) {
+        if (listModel != null)
+            dataList = listModel;
+        else
+            dataList.clear();
+        notifyDataSetChanged();
     }
 
 

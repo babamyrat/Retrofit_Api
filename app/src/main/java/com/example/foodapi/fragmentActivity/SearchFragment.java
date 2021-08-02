@@ -1,9 +1,11 @@
 package com.example.foodapi.fragmentActivity;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,104 +13,91 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
-import android.widget.Toast;
 
-import com.example.foodapi.ApiInterface;
 import com.example.foodapi.R;
 import com.example.foodapi.adapter.SearchAdapter;
 import com.example.foodapi.model.SearchModel;
-import com.example.foodapi.response.SearchResponse;
-import com.example.foodapi.retrofit.ApiClient;
+
+import com.example.foodapi.viewModel.SearchViewModel;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
  * create an instance of this fragment.
  */
 public class SearchFragment extends Fragment {
+
+    private View view;
     private RecyclerView recyclerView;
-    ProgressDialog progressDialog;
-    View view;
+    private List<SearchModel> searchModelList = new ArrayList<>();
+    private SearchAdapter adapter;
+    private SearchViewModel searchViewModel;
+    private SearchView simpleSearchView;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
-
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_search, container, false);
-        // connect xml
-        recyclerView = view.findViewById(R.id.recyclerView);
-
-        //Progress
-        progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Loading....");
-        progressDialog.show();
-
-        //without keyword
-        fetchService("");
         return view;
     }
-    public void fetchService(String key){
-        //Create handle for the RetrofitInstance interface
-        ApiInterface service = ApiClient.getRetrofitInstance().create(ApiInterface.class);
-        Call<SearchResponse> call = service.getAllInfo(key);
 
-        call.enqueue(new retrofit2.Callback<SearchResponse>() {
-            @Override
-            public void onResponse(retrofit2.@NotNull Call<SearchResponse> call, @NotNull Response<SearchResponse> response) {     // Response
-                progressDialog.dismiss();   // progress
-
-                if (response.isSuccessful()) {
-                    assert response.body() != null;
-                    generateDataList(response.body().getMeals());
-                }
-            }
-
-            @Override
-            public void onFailure(retrofit2.@NotNull Call<SearchResponse> call, @NotNull Throwable t) {       // in not on uri
-                progressDialog.dismiss();
-                Toast.makeText(getActivity(), "Error on:" + t.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-
+    @Override
+    public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initView();
+        settingViewModel("");
         search();
     }
 
-    private void search() {
-        SearchView simpleSearchView = view.findViewById(R.id.searchView); // inititate a search view
 
-// perform set on query text listener event
+    private void initView() {
+        simpleSearchView = view.findViewById(R.id.searchView);
+        recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
+        recyclerView.setLayoutManager(mLayoutManager);
+        adapter = new SearchAdapter(searchModelList, getContext());
+        recyclerView.setAdapter(adapter);
+    }
+
+    private void settingViewModel(String key) {
+        searchViewModel = ViewModelProviders.of(this).get(SearchViewModel.class);
+        searchViewModel.search(key);
+        searchViewModel.getSearchLiveData().observe(getViewLifecycleOwner(), searchResponse -> {
+            List<SearchModel> models = searchResponse.getMeals();
+            adapter.addData(models);
+        });
+    }
+
+
+    private void search() {
         simpleSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
-                fetchService(s);
+                searchViewModel.search(s);
                 return false;
             }
+
             @Override
             public boolean onQueryTextChange(String s) {
-                fetchService(s);
+                searchViewModel.search(s);
                 return false;
             }
         });
     }
 
-    //Method to generate List of data using RecyclerView with custom adapter
-    private void generateDataList(List<SearchModel> photoList) {
-
-        SearchAdapter adapter = new SearchAdapter(photoList, getContext());
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-
-    }
+    //
+//    //Method to generate List of data using RecyclerView with custom adapter
+//    private void generateDataList() {
+//
+//        SearchAdapter adapter = new SearchAdapter(dataList, getContext());
+//        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
+//        recyclerView.setLayoutManager(mLayoutManager);
+//        recyclerView.setAdapter(adapter);
+//        adapter.notifyDataSetChanged();
+//
+//    }
 }
