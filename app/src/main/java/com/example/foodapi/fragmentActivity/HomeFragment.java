@@ -18,7 +18,7 @@ import com.example.foodapi.R;
 import com.example.foodapi.adapter.ExampleAdapter;
 import com.example.foodapi.model.ExampleModel;
 import com.example.foodapi.response.ServerResponse;
-import com.example.foodapi.retrofit.ApiClient;
+import com.example.foodapi.retrofit.ApiRetrofit;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -62,7 +62,7 @@ public class HomeFragment extends Fragment {
 
     private void serviceClient() {
         //Create handle for the RetrofitInstance interface
-        ApiInterface service = ApiClient.getRetrofitInstance().create(ApiInterface.class);
+        ApiInterface service = ApiRetrofit.getRetrofitInstance().create(ApiInterface.class);
         Call<ServerResponse> call = service.getAllPhotos();
         call.enqueue(new retrofit2.Callback<ServerResponse>() {
 

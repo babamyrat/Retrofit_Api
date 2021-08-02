@@ -3,7 +3,7 @@ package com.example.foodapi.retrofit;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ApiClient {
+public class ApiRetrofit {
     private static Retrofit retrofit;
     private static final String BASE_URL = "https://www.themealdb.com";
 
