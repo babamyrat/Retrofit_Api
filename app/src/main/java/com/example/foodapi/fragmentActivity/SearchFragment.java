@@ -89,15 +89,5 @@ public class SearchFragment extends Fragment {
         });
     }
 
-    //
-//    //Method to generate List of data using RecyclerView with custom adapter
-//    private void generateDataList() {
-//
-//        SearchAdapter adapter = new SearchAdapter(dataList, getContext());
-//        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
-//        recyclerView.setLayoutManager(mLayoutManager);
-//        recyclerView.setAdapter(adapter);
-//        adapter.notifyDataSetChanged();
-//
-//    }
+
 }

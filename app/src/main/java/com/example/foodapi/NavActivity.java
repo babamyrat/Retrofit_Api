@@ -5,7 +5,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
 
-import com.example.foodapi.Base.BaseActivity;
+import com.example.foodapi.base.BaseActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class NavActivity extends BaseActivity {

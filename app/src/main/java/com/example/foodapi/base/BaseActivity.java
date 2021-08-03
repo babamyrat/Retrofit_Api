@@ -1,4 +1,4 @@
-package com.example.foodapi.Base;
+package com.example.foodapi.base;
 
 import android.os.Bundle;
 import android.view.Window;
