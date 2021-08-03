@@ -16,7 +16,7 @@ import retrofit2.Response;
 public class SearchViewModel extends ViewModel {
 
     private final MutableLiveData<SearchResponse> searchResponseMutableLiveData = new MutableLiveData<>();
-    private final SearchRepository movieDetailRepository = SearchRepository.getInstance();;
+    private  SearchRepository movieDetailRepository = SearchRepository.getInstance();;
 
     public MutableLiveData<SearchResponse> getSearchLiveData() {
         return searchResponseMutableLiveData;
