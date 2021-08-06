@@ -17,8 +17,10 @@ import com.example.foodapi.R;
 import java.util.List;
 
 public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder> {
-    private final List<ExampleModel> dataList;
+    private List<ExampleModel> dataList;
     private final Context context;
+
+
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
         TextView txtTitle, txtNumber;
@@ -60,6 +62,14 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(holder.coverImage);
 
+    }
+
+    public void addDataHome(List<ExampleModel> models) {
+        if (models!= null)
+            dataList = models;
+        else
+            dataList.clear();
+        notifyDataSetChanged();
     }
 
     @Override

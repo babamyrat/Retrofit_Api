@@ -1,14 +1,10 @@
 package com.example.foodapi.repository;
 
-import androidx.lifecycle.MutableLiveData;
-
-import com.example.foodapi.ApiInterface;
+import com.example.foodapi.data.api.ApiInterface;
 import com.example.foodapi.response.SearchResponse;
-import com.example.foodapi.retrofit.ApiRetrofit;
+import com.example.foodapi.data.api.ApiClient;
 
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class SearchRepository {
@@ -26,7 +22,7 @@ public class SearchRepository {
    ApiInterface apiInterface;
 
     public SearchRepository(){
-        Retrofit retrofit = ApiRetrofit.getRetrofitInstance();
+        Retrofit retrofit = ApiClient.getRetrofitInstance();
         apiInterface = retrofit.create(ApiInterface.class);
     }
 

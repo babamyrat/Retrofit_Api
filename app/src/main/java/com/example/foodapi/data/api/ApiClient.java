@@ -1,11 +1,12 @@
-package com.example.foodapi.retrofit;
+package com.example.foodapi.data.api;
+
+import static com.example.foodapi.Utils.Constant.BASE_URL;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ApiRetrofit {
+public class ApiClient {
     private static Retrofit retrofit;
-    private static final String BASE_URL = "https://www.themealdb.com";
 
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {
@@ -14,6 +15,7 @@ public class ApiRetrofit {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
+
         return retrofit;
     }
 }

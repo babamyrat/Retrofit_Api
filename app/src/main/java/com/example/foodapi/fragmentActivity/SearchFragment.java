@@ -52,7 +52,6 @@ public class SearchFragment extends Fragment {
         search();
     }
 
-
     private void initView() {
         simpleSearchView = view.findViewById(R.id.searchView);
         recyclerView = view.findViewById(R.id.recyclerView);

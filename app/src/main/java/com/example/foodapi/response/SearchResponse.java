@@ -19,4 +19,5 @@ public class SearchResponse {
         public void setMeals(List<SearchModel> meals) {
             this.meals = meals;
         }
+
 }
