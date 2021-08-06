@@ -1,18 +1,25 @@
-package com.example.foodapi.data.local;
+package com.example.foodapi.data.local.example;
 
+import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
+
 import com.example.foodapi.model.ExampleModel;
+import com.example.foodapi.model.SearchModel;
 
 import java.util.List;
 
-public interface ExampleDao {
+
+@Dao
+public interface UserDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertAll(List<ExampleModel> categoryList);
+    void insertAll(List<ExampleModel> exampleModelList);
 
-    @Query("SELECT * FROM examples")
+    @Query("SELECT * FROM categories")
     List<ExampleModel> loadAll();
+
+
 }

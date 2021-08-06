@@ -11,8 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.foodapi.model.ExampleModel;
 import com.example.foodapi.R;
+import com.example.foodapi.model.ExampleModel;
 
 import java.util.List;
 
@@ -20,6 +20,11 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
     private List<ExampleModel> dataList;
     private final Context context;
 
+    public void addItems(List<ExampleModel> categories) {
+        this.dataList.clear();
+        this.dataList.addAll(categories);
+        notifyDataSetChanged();
+    }
 
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
@@ -29,7 +34,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
         ExampleViewHolder(View itemView) {
             super(itemView);
 
-            txtNumber = itemView.findViewById(R.id.textView2);
+           // txtNumber = itemView.findViewById(R.id.textView2);
             txtTitle = itemView.findViewById(R.id.textView);
             coverImage = itemView.findViewById(R.id.imageView);
 
@@ -55,7 +60,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
     public void onBindViewHolder(@NonNull @org.jetbrains.annotations.NotNull ExampleAdapter.ExampleViewHolder holder, int position) {
 
         holder.txtTitle.setText(dataList.get(position).getStrCategory());
-        holder.txtNumber.setText(dataList.get(position).getIdCategory());
+        //holder.txtNumber.setText(dataList.get(position).getIdCategory());
 
         Glide.with(context)
                 .load(dataList.get(position).getStrCategoryThumb())
@@ -64,13 +69,6 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
 
     }
 
-    public void addDataHome(List<ExampleModel> models) {
-        if (models!= null)
-            dataList = models;
-        else
-            dataList.clear();
-        notifyDataSetChanged();
-    }
 
     @Override
     public int getItemCount() {

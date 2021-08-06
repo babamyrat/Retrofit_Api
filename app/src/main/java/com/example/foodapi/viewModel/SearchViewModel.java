@@ -1,20 +1,44 @@
 package com.example.foodapi.viewModel;
 
-import android.util.Log;
-import android.widget.Toast;
+import android.app.Application;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
+import com.example.foodapi.model.ExampleModel;
+import com.example.foodapi.model.SearchModel;
+import com.example.foodapi.repository.DataManager;
 import com.example.foodapi.repository.SearchRepository;
-import com.example.foodapi.response.SearchResponse;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
-public class SearchViewModel extends ViewModel {
+import java.util.List;
 
+
+public class SearchViewModel extends AndroidViewModel {
+
+    private SearchRepository searchRepository = SearchRepository.newInstanceSearch(getApplication());
+
+    MutableLiveData<List<SearchModel>> liveData = new MutableLiveData<>();
+
+    public MutableLiveData<List<SearchModel>> getLiveDataSearch() {
+        return liveData;
+    }
+
+    public SearchViewModel(@NonNull Application application) {
+        super(application);
+    }
+
+    public void loadCategorySearch(){
+        searchRepository.loadCategorySearch(liveData);
+    }
+
+
+}
+
+
+
+/*
     private final MutableLiveData<SearchResponse> searchResponseMutableLiveData = new MutableLiveData<>();
     private  SearchRepository movieDetailRepository = SearchRepository.getInstance();;
 
@@ -34,5 +58,5 @@ public class SearchViewModel extends ViewModel {
                 Log.d("error", t.getLocalizedMessage());
             }
         });
-    }
-}
+    }*/
+

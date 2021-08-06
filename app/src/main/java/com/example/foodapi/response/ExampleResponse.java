@@ -1,25 +1,23 @@
 package com.example.foodapi.response;
 
-
 import com.example.foodapi.model.ExampleModel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ExampleResponse {
 
     @SerializedName("categories")
     @Expose
-    private List<ExampleModel> categories = new ArrayList<>();
+    private List<ExampleModel> results = null;
 
-    public List<ExampleModel> getCategories() {
-        return categories;
+    public List<ExampleModel> getResults() {
+        return results;
     }
 
-    public void setCategories(List<ExampleModel> categories) {
-        this.categories = categories;
+    public void setResults(List<ExampleModel> results) {
+        this.results = results;
     }
 
 }

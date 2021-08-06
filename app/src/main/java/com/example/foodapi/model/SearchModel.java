@@ -1,18 +1,23 @@
 package com.example.foodapi.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "categoriesSearch")
 public class SearchModel {
+    @PrimaryKey
     @SerializedName("idMeal")
     @Expose
-    private String idMeal;
+    private Integer idMeal;
     @SerializedName("strMeal")
     @Expose
     private String strMeal;
     @SerializedName("strDrinkAlternate")
     @Expose
-    private Object strDrinkAlternate;
+    private String strDrinkAlternate;
     @SerializedName("strCategory")
     @Expose
     private String strCategory;
@@ -154,21 +159,21 @@ public class SearchModel {
     @SerializedName("strSource")
     @Expose
     private String strSource;
-    @SerializedName("strImageSource")
-    @Expose
-    private Object strImageSource;
-    @SerializedName("strCreativeCommonsConfirmed")
-    @Expose
-    private Object strCreativeCommonsConfirmed;
-    @SerializedName("dateModified")
-    @Expose
-    private Object dateModified;
+//    @SerializedName("strImageSource")
+//    @Expose
+//    private Object strImageSource;
+//    @SerializedName("strCreativeCommonsConfirmed")
+//    @Expose
+//    private Object strCreativeCommonsConfirmed;
+//    @SerializedName("dateModified")
+//    @Expose
+//    private Object dateModified;
 
-    public String getIdMeal() {
+    public Integer getIdMeal() {
         return idMeal;
     }
 
-    public void setIdMeal(String idMeal) {
+    public void setIdMeal(Integer idMeal) {
         this.idMeal = idMeal;
     }
 
@@ -180,11 +185,11 @@ public class SearchModel {
         this.strMeal = strMeal;
     }
 
-    public Object getStrDrinkAlternate() {
+    public String getStrDrinkAlternate() {
         return strDrinkAlternate;
     }
 
-    public void setStrDrinkAlternate(Object strDrinkAlternate) {
+    public void setStrDrinkAlternate(String strDrinkAlternate) {
         this.strDrinkAlternate = strDrinkAlternate;
     }
 
@@ -564,28 +569,28 @@ public class SearchModel {
         this.strSource = strSource;
     }
 
-    public Object getStrImageSource() {
-        return strImageSource;
-    }
-
-    public void setStrImageSource(Object strImageSource) {
-        this.strImageSource = strImageSource;
-    }
-
-    public Object getStrCreativeCommonsConfirmed() {
-        return strCreativeCommonsConfirmed;
-    }
-
-    public void setStrCreativeCommonsConfirmed(Object strCreativeCommonsConfirmed) {
-        this.strCreativeCommonsConfirmed = strCreativeCommonsConfirmed;
-    }
-
-    public Object getDateModified() {
-        return dateModified;
-    }
-
-    public void setDateModified(Object dateModified) {
-        this.dateModified = dateModified;
-    }
+//    public Object getStrImageSource() {
+//        return strImageSource;
+//    }
+//
+//    public void setStrImageSource(Object strImageSource) {
+//        this.strImageSource = strImageSource;
+//    }
+//
+//    public Object getStrCreativeCommonsConfirmed() {
+//        return strCreativeCommonsConfirmed;
+//    }
+//
+//    public void setStrCreativeCommonsConfirmed(Object strCreativeCommonsConfirmed) {
+//        this.strCreativeCommonsConfirmed = strCreativeCommonsConfirmed;
+//    }
+//
+//    public Object getDateModified() {
+//        return dateModified;
+//    }
+//
+//    public void setDateModified(Object dateModified) {
+//        this.dateModified = dateModified;
+//    }
 
 }

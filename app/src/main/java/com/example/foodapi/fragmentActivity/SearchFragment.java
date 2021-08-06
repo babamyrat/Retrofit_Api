@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,7 +37,7 @@ public class SearchFragment extends Fragment {
     private List<SearchModel> searchModelList = new ArrayList<>();
     private SearchAdapter adapter;
     private SearchViewModel searchViewModel;
-    private SearchView simpleSearchView;
+    SearchView simpleSearchView;
 
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
@@ -47,22 +48,35 @@ public class SearchFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+       searchViewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication()).create(SearchViewModel.class);
+
         initView();
-        settingViewModel("");
-        search();
+        initObserve();
     }
+
 
     private void initView() {
         simpleSearchView = view.findViewById(R.id.searchView);
         recyclerView = view.findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
+       // recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(mLayoutManager);
         adapter = new SearchAdapter(searchModelList, getContext());
         recyclerView.setAdapter(adapter);
     }
 
-    private void settingViewModel(String key) {
+    private void initObserve() {
+        searchViewModel.loadCategorySearch();
+        searchViewModel.getLiveDataSearch().observe(getViewLifecycleOwner(), categories -> {
+            if (categories != null){
+                adapter.addItems(categories);
+            }
+        });
+    }
+
+
+
+    /*private void settingViewModel(String key) {
         searchViewModel = ViewModelProviders.of(this).get(SearchViewModel.class);
         searchViewModel.search(key);
         searchViewModel.getSearchLiveData().observe(getViewLifecycleOwner(), searchResponse -> {
@@ -88,5 +102,5 @@ public class SearchFragment extends Fragment {
         });
     }
 
-
+*/
 }

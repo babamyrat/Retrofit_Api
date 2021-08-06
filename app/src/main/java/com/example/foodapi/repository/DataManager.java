@@ -6,9 +6,10 @@ import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
+
 import com.example.foodapi.data.api.ApiClient;
-import com.example.foodapi.data.local.search.LocalClientSearch;
-import com.example.foodapi.model.SearchModel;
+import com.example.foodapi.data.local.example.LocalClient;
+import com.example.foodapi.model.ExampleModel;
 import com.example.foodapi.utils.NetworkUtils;
 
 import java.util.List;
@@ -17,38 +18,38 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class SearchRepository {
+public class DataManager {
 
     private Context context;
-    private static SearchRepository instance;
+    private static DataManager instance;
     private ApiClient apiClient;
-    private LocalClientSearch localClientSearch;
+    private LocalClient localClient;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
-    private SearchRepository(Context context) {
+    private DataManager(Context context) {
         this.context = context;
         apiClient = ApiClient.newInstance();
-        localClientSearch = LocalClientSearch.newInstance(context);
+        localClient = LocalClient.newInstance(context);
     }
 
-    public static SearchRepository newInstanceSearch(Context context) {
+    public static DataManager newInstance(Context context) {
         if (instance == null)
-            instance = new SearchRepository(context);
+            instance = new DataManager(context);
         return instance;
     }
 
     @SuppressLint("CheckResult")
-    public void loadCategorySearch(MutableLiveData<List<SearchModel>> liveData) {
+    public void loadCategory(MutableLiveData<List<ExampleModel>> liveData) {
         if (NetworkUtils.isNetworkConnected(context)) {
-            apiClient.getCategoriesSearch()
+            apiClient.getCategories()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(categoryResponse -> {
-                        liveData.postValue(categoryResponse.getResultsSearch());
-                        insertCategories(categoryResponse.getResultsSearch());
+                        liveData.postValue(categoryResponse.getResults());
+                        insertCategories(categoryResponse.getResults());
                     }, error -> Log.d("ERROR", error.getMessage()));
         } else {
-            localClientSearch.getAllCategories()
+            localClient.getAllCategories()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(liveData::postValue, throwable -> {
@@ -56,8 +57,8 @@ public class SearchRepository {
         }
     }
 
-    public void insertCategories(List<SearchModel> categories) {
-        compositeDisposable.add(localClientSearch.insertAll(categories)
+    public void insertCategories(List<ExampleModel> categories) {
+        compositeDisposable.add(localClient.insertAll(categories)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {

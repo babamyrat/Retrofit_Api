@@ -1,9 +1,10 @@
-package com.example.foodapi.data.local;
+package com.example.foodapi.data.local.example;
 
 import android.content.Context;
 import android.util.Log;
 
 import androidx.room.Room;
+
 
 import com.example.foodapi.model.ExampleModel;
 
@@ -12,6 +13,7 @@ import java.util.List;
 import io.reactivex.Observable;
 
 public class LocalClient {
+
     private static LocalClient instance;
     private AppDataBase appDataBase;
 
@@ -42,5 +44,8 @@ public class LocalClient {
             return false;
         });
     }
+
+
+
 
 }

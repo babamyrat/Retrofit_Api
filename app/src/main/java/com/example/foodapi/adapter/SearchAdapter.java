@@ -26,6 +26,12 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     private List<SearchModel> dataList;
     private final Context context;
 
+    public void addItems(List<SearchModel> categories) {
+        this.dataList.clear();
+        this.dataList.addAll(categories);
+        notifyDataSetChanged();
+    }
+
 
     public static class SearchViewHolder extends RecyclerView.ViewHolder {
         TextView idMeal, strMeal;
@@ -33,7 +39,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
 
         public SearchViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
-            idMeal = itemView.findViewById(R.id.idMeal);
+            //idMeal = itemView.findViewById(R.id.idMeal);
             strMeal = itemView.findViewById(R.id.strMeal);
             strMealThumb = itemView.findViewById(R.id.strMealThumb);
         }
@@ -57,7 +63,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull SearchAdapter.SearchViewHolder holder, int position) {
-        holder.idMeal.setText(dataList.get(position).getIdMeal());
+       // holder.idMeal.setText(dataList.get(position).getIdMeal());
         holder.strMeal.setText(dataList.get(position).getStrMeal());
 
         Glide.with(context)
@@ -72,13 +78,13 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         return dataList.size();
     }
 
-    public void addData(List<SearchModel> listModel) {
-        if (listModel != null)
-            dataList = listModel;
-        else
-            dataList.clear();
-        notifyDataSetChanged();
-    }
+//    public void addData(List<SearchModel> listModel) {
+//        if (listModel != null)
+//            dataList = listModel;
+//        else
+//            dataList.clear();
+//        notifyDataSetChanged();
+//    }
 
 
 }

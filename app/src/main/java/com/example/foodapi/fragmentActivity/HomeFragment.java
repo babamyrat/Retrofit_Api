@@ -5,7 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
@@ -30,7 +30,7 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
     private View view;
-    private ExampleViewModel exampleViewModel;
+    private ExampleViewModel viewModel;
     private ExampleAdapter adapter;
     private ViewPager2 pager;
     private TabLayout tabLayout;
@@ -47,8 +47,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        exampleViewModel = ViewModelProviders.of(this).get(ExampleViewModel.class);
-        exampleViewModel.example();
+        viewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication()).create(ExampleViewModel.class);
 
         bindingViews();
         initAdapter();
@@ -56,10 +55,11 @@ public class HomeFragment extends Fragment {
     }
 
     private void initObserve() {
-        exampleViewModel.getExampleLiveData().observe(getViewLifecycleOwner(), exampleResponse -> {
-            List<ExampleModel> models = exampleResponse.getCategories();
-            initTabLayout(models);
-            adapter.addDataHome(models);
+        viewModel.loadCategory();
+        viewModel.getLiveData().observe(getViewLifecycleOwner(), categories -> {
+            if (categories != null){
+                adapter.addItems(categories);
+            }
         });
     }
 

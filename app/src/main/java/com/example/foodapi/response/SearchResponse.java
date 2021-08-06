@@ -8,16 +8,17 @@ import java.util.List;
 
 public class SearchResponse {
 
-        @SerializedName("meals")
-        @Expose
-        private List<SearchModel> meals = null;
+    @SerializedName("meals")
+    @Expose
+    private List<SearchModel> results = null;
 
-        public List<SearchModel> getMeals() {
-            return meals;
-        }
+    public List<SearchModel> getResultsSearch() {
+        return results;
+    }
 
-        public void setMeals(List<SearchModel> meals) {
-            this.meals = meals;
-        }
+    public void setResults(List<SearchModel> results) {
+        this.results = results;
+    }
 
 }
+

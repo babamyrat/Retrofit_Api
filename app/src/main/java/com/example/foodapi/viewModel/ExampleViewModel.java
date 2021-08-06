@@ -1,37 +1,34 @@
 package com.example.foodapi.viewModel;
 
-import android.util.Log;
+import android.app.Application;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
-import com.example.foodapi.repository.ExampleRepository;
-import com.example.foodapi.response.ExampleResponse;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import com.example.foodapi.model.ExampleModel;
+import com.example.foodapi.repository.DataManager;
 
-public class ExampleViewModel extends ViewModel {
-    private final MutableLiveData<ExampleResponse> exampleResponseMutableLiveData = new MutableLiveData<>();
-    private ExampleRepository exampleRepository = ExampleRepository.getInstanceExample();;
+import java.util.List;
 
-    public MutableLiveData<ExampleResponse> getExampleLiveData() {
-        return exampleResponseMutableLiveData;
+public class ExampleViewModel extends AndroidViewModel {
+
+    private DataManager dataManager = DataManager.newInstance(getApplication());
+
+    MutableLiveData<List<ExampleModel>> liveData = new MutableLiveData<>();
+
+    public MutableLiveData<List<ExampleModel>> getLiveData() {
+        return liveData;
     }
 
-    public void example() {
-        exampleRepository.example().enqueue(new Callback<ExampleResponse>() {
-            @Override
-            public void onResponse(Call<ExampleResponse> call, Response<ExampleResponse> response) {
-                exampleResponseMutableLiveData.postValue(response.body());
-            }
-
-            @Override
-            public void onFailure(Call<ExampleResponse> call, Throwable t) {
-                Log.d("error", t.getLocalizedMessage());
-            }
-        });
+    public ExampleViewModel(@NonNull Application application) {
+        super(application);
     }
+
+    public void loadCategory(){
+        dataManager.loadCategory(liveData);
+    }
+
 
 }
