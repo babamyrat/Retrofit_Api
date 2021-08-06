@@ -26,11 +26,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     private List<SearchModel> dataList;
     private final Context context;
 
-    public void addItems(List<SearchModel> categories) {
-        this.dataList.clear();
-        this.dataList.addAll(categories);
-        notifyDataSetChanged();
-    }
+
 
 
     public static class SearchViewHolder extends RecyclerView.ViewHolder {
@@ -77,6 +73,20 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         if (dataList == null) return 0;
         return dataList.size();
     }
+
+    public void addItems(List<SearchModel> categories) {
+        if (categories != null) {
+            dataList.clear();
+            dataList.addAll(categories);
+            notifyDataSetChanged();
+        } else  {
+            dataList.clear();
+            notifyDataSetChanged();
+        }
+
+
+    }
+
 
 //    public void addData(List<SearchModel> listModel) {
 //        if (listModel != null)

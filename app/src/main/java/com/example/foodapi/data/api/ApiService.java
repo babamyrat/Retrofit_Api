@@ -10,6 +10,7 @@ import com.example.foodapi.response.SearchResponse;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface ApiService {
 
@@ -17,12 +18,6 @@ public interface ApiService {
     Observable<ExampleResponse> getCategory();
 
     @GET(SEARCH_API_KEY)
-    Observable<SearchResponse> getSearch();
+    Observable<SearchResponse> getSearch(@Query("s") String query);
 
-
-//    @Headers("Content-Type: application/json")
-//    @GET("catalog/category")
-//    Observable<CategoryResponse> getCategory();
-
-    //https://api.npoint.io/0647b08d610d10edf331
 }

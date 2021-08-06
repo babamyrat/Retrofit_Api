@@ -51,7 +51,8 @@ public class SearchFragment extends Fragment {
        searchViewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication()).create(SearchViewModel.class);
 
         initView();
-        initObserve();
+        initObserve("");
+        search();
     }
 
 
@@ -65,42 +66,30 @@ public class SearchFragment extends Fragment {
         recyclerView.setAdapter(adapter);
     }
 
-    private void initObserve() {
-        searchViewModel.loadCategorySearch();
+    private void initObserve(String key) {
+        searchViewModel.loadCategorySearch(key);
         searchViewModel.getLiveDataSearch().observe(getViewLifecycleOwner(), categories -> {
-            if (categories != null){
-                adapter.addItems(categories);
-            }
+            adapter.addItems(categories);
         });
     }
 
-
-
-    /*private void settingViewModel(String key) {
-        searchViewModel = ViewModelProviders.of(this).get(SearchViewModel.class);
-        searchViewModel.search(key);
-        searchViewModel.getSearchLiveData().observe(getViewLifecycleOwner(), searchResponse -> {
-            List<SearchModel> models = searchResponse.getMeals();
-            adapter.addData(models);
-        });
-    }
 
 
     private void search() {
         simpleSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
-                searchViewModel.search(s);
+                searchViewModel.loadCategorySearch(s);
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String s) {
-                searchViewModel.search(s);
+                searchViewModel.loadCategorySearch(s);
                 return false;
             }
         });
     }
 
-*/
+
 }

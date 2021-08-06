@@ -53,7 +53,7 @@ public class ApiClient {
     }
 
 
-    public Observable<SearchResponse> getCategoriesSearch(){
-        return apiService.getSearch();
+    public Observable<SearchResponse> getCategoriesSearch(String query){
+        return apiService.getSearch(query);
     }
 }
