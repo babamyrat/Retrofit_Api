@@ -21,5 +21,4 @@ public interface UserDao {
     @Query("SELECT * FROM categories")
     List<ExampleModel> loadAll();
 
-
 }

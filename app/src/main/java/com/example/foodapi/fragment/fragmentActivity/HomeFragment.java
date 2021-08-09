@@ -1,4 +1,4 @@
-package com.example.foodapi.fragmentActivity;
+package com.example.foodapi.fragment.fragmentActivity;
 
 import android.os.Bundle;
 
@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import com.example.foodapi.R;
 import com.example.foodapi.adapter.ExampleAdapter;
 import com.example.foodapi.model.ExampleModel;
-import com.example.foodapi.viewModel.ExampleViewModel;
+import com.example.foodapi.UI.viewModel.ExampleViewModel;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -51,6 +51,7 @@ public class HomeFragment extends Fragment {
 
         bindingViews();
         initAdapter();
+        initTabLayout();
         initObserve();
     }
 
@@ -68,9 +69,9 @@ public class HomeFragment extends Fragment {
         tabLayout = view.findViewById(R.id.tapLayout);
     }
 
-    private void initTabLayout(List<ExampleModel> models) {
+    private void initTabLayout() {
         TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(tabLayout, pager, (tab, position) ->
-                tab.setText(models.get(position).getStrCategory()));
+                tab.setText(exampleModels.get(position).getStrCategory()));
         tabLayoutMediator.attach();
     }
 

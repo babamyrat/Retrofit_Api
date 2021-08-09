@@ -5,8 +5,8 @@ package com.example.foodapi.data.api;
 import static com.example.foodapi.utils.Constant.EXAMPLE_API_KEY;
 import static com.example.foodapi.utils.Constant.SEARCH_API_KEY;
 
-import com.example.foodapi.response.ExampleResponse;
-import com.example.foodapi.response.SearchResponse;
+import com.example.foodapi.model.response.ExampleResponse;
+import com.example.foodapi.model.response.SearchResponse;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;

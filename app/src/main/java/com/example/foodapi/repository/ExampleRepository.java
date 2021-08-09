@@ -18,23 +18,23 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class DataManager {
+public class ExampleRepository {
 
     private Context context;
-    private static DataManager instance;
+    private static ExampleRepository instance;
     private ApiClient apiClient;
     private LocalClient localClient;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
-    private DataManager(Context context) {
+    private ExampleRepository(Context context) {
         this.context = context;
         apiClient = ApiClient.newInstance();
         localClient = LocalClient.newInstance(context);
     }
 
-    public static DataManager newInstance(Context context) {
+    public static ExampleRepository newInstance(Context context) {
         if (instance == null)
-            instance = new DataManager(context);
+            instance = new ExampleRepository(context);
         return instance;
     }
 

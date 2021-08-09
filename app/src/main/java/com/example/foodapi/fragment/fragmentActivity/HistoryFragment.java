@@ -1,4 +1,4 @@
-package com.example.foodapi.fragmentActivity;
+package com.example.foodapi.fragment.fragmentActivity;
 
 import android.os.Bundle;
 
@@ -14,14 +14,16 @@ import com.example.foodapi.R;
  * A simple {@link Fragment} subclass.
  * create an instance of this fragment.
  */
-public class UsersFragment extends Fragment {
+public class HistoryFragment extends Fragment {
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_users, container, false);
+        View view = inflater.inflate(R.layout.fragment_history, container, false);
 
         return view;
     }

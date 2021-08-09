@@ -1,4 +1,4 @@
-package com.example.foodapi.response;
+package com.example.foodapi.model.response;
 
 import com.example.foodapi.model.SearchModel;
 import com.google.gson.annotations.Expose;

@@ -6,8 +6,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 
 
-import com.example.foodapi.response.ExampleResponse;
-import com.example.foodapi.response.SearchResponse;
+import com.example.foodapi.model.response.ExampleResponse;
+import com.example.foodapi.model.response.SearchResponse;
 
 import io.reactivex.Observable;
 import okhttp3.OkHttpClient;
@@ -52,8 +52,8 @@ public class ApiClient {
         return apiService.getCategory();
     }
 
-
     public Observable<SearchResponse> getCategoriesSearch(String query){
         return apiService.getSearch(query);
+
     }
 }

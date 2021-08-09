@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.foodapi.NavActivity;
+import com.example.foodapi.UI.NavActivity;
 import com.example.foodapi.R;
 
 public class StepOneFragment extends Fragment {

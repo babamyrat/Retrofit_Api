@@ -6,7 +6,7 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.foodapi.fragmentActivity.HomeFragment"
+        android:name="com.example.foodapi.fragment.fragmentActivity.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.foodapi.fragmentActivity.SearchFragment"
+        android:name="com.example.foodapi.fragment.fragmentActivity.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/usersFragment"
-        android:name="com.example.foodapi.fragmentActivity.UsersFragment"
+        android:name="com.example.foodapi.fragment.fragmentActivity.UsersFragment"
         android:label="fragment_users"
         tools:layout="@layout/fragment_users" >
         <action
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
-        android:name="com.example.foodapi.fragmentActivity.HistoryFragment"
+        android:name="com.example.foodapi.fragment.fragmentActivity.HistoryFragment"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
 </navigation>

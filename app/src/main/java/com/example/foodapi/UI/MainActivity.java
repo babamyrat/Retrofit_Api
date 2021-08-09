@@ -1,10 +1,10 @@
-package com.example.foodapi;
+package com.example.foodapi.UI;
 
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
-import com.example.foodapi.base.BaseActivity;
+import com.example.foodapi.R;
 import com.example.foodapi.adapter.ViewPagerAdapter;
 import com.example.foodapi.fragment.StepOneFragment;
 

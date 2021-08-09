@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/fon_color"
-        tools:context=".fragmentActivity.UsersFragment">
+        tools:context=".fragment.fragmentActivity.UsersFragment">
 
         <TextView
             android:id="@+id/textView3"

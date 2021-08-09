@@ -1,4 +1,4 @@
-package com.example.foodapi.fragmentActivity;
+package com.example.foodapi.fragment.fragmentActivity;
 
 import android.os.Bundle;
 
@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,7 +18,7 @@ import com.example.foodapi.R;
 import com.example.foodapi.adapter.SearchAdapter;
 import com.example.foodapi.model.SearchModel;
 
-import com.example.foodapi.viewModel.SearchViewModel;
+import com.example.foodapi.UI.viewModel.SearchViewModel;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -51,29 +50,26 @@ public class SearchFragment extends Fragment {
        searchViewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication()).create(SearchViewModel.class);
 
         initView();
-        initObserve("");
+        initObserve();
         search();
     }
-
 
     private void initView() {
         simpleSearchView = view.findViewById(R.id.searchView);
         recyclerView = view.findViewById(R.id.recyclerView);
-       // recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(mLayoutManager);
         adapter = new SearchAdapter(searchModelList, getContext());
         recyclerView.setAdapter(adapter);
     }
 
-    private void initObserve(String key) {
-        searchViewModel.loadCategorySearch(key);
+
+    private void initObserve() {
+        searchViewModel.loadCategorySearch("");
         searchViewModel.getLiveDataSearch().observe(getViewLifecycleOwner(), categories -> {
             adapter.addItems(categories);
         });
     }
-
-
 
     private void search() {
         simpleSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

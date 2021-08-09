@@ -15,7 +15,11 @@ public interface SearchDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(List<SearchModel> searchModelList);
 
-    @Query("SELECT * FROM categoriesSearch")
-    List<SearchModel> loadAll();
+   // @Query("SELECT * FROM SearchAll")
+  //  List<SearchModel> loadAllSearch();
+
+    @Query("SELECT * FROM SearchAll WHERE strMeal LIKE '%' || :query || '%'")
+    List<SearchModel> loadAllSearch(String query);
+
 
 }

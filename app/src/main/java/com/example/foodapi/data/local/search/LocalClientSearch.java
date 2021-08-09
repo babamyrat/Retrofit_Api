@@ -18,7 +18,7 @@ public class LocalClientSearch {
 
     private LocalClientSearch(Context context){
         appDataBaseSearch =  Room.databaseBuilder(context,
-                AppDataBaseSearch.class, "database").build();
+                AppDataBaseSearch.class, "dbase").build();
     }
 
     public static LocalClientSearch newInstance(Context context){
@@ -27,9 +27,10 @@ public class LocalClientSearch {
         return instance;
     }
 
-    public Observable<List<SearchModel>> getAllCategories(){
-        return Observable.fromCallable(() -> appDataBaseSearch.SearchDao().loadAll());
+    public Observable<List<SearchModel>> getAllCategories(String query){
+        return Observable.fromCallable(() -> appDataBaseSearch.SearchDao().loadAllSearch(query));
     }
+
 
     public Observable<Boolean> insertAll(List<SearchModel> categories){
         return Observable.fromCallable(() -> {

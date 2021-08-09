@@ -1,4 +1,4 @@
-package com.example.foodapi.viewModel;
+package com.example.foodapi.UI.viewModel;
 
 import android.app.Application;
 
@@ -8,13 +8,13 @@ import androidx.lifecycle.MutableLiveData;
 
 
 import com.example.foodapi.model.ExampleModel;
-import com.example.foodapi.repository.DataManager;
+import com.example.foodapi.repository.ExampleRepository;
 
 import java.util.List;
 
 public class ExampleViewModel extends AndroidViewModel {
 
-    private DataManager dataManager = DataManager.newInstance(getApplication());
+    private ExampleRepository exampleRepository = ExampleRepository.newInstance(getApplication());
 
     MutableLiveData<List<ExampleModel>> liveData = new MutableLiveData<>();
 
@@ -27,7 +27,7 @@ public class ExampleViewModel extends AndroidViewModel {
     }
 
     public void loadCategory(){
-        dataManager.loadCategory(liveData);
+        exampleRepository.loadCategory(liveData);
     }
 
 

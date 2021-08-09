@@ -8,7 +8,6 @@ import com.google.gson.annotations.SerializedName;
 
 @Entity(tableName = "categories")
 public class ExampleModel {
-
     @PrimaryKey
     @SerializedName("idCategory")
     @Expose
@@ -22,6 +21,7 @@ public class ExampleModel {
 //    @SerializedName("strCategoryDescription")
 //    @Expose
 //    private String strCategoryDescription;
+
 
     public Integer getIdCategory() {
         return idCategory;

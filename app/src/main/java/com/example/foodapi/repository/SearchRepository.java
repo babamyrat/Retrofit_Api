@@ -10,7 +10,6 @@ import com.example.foodapi.data.api.ApiClient;
 import com.example.foodapi.data.api.ApiService;
 import com.example.foodapi.data.local.search.LocalClientSearch;
 import com.example.foodapi.model.SearchModel;
-import com.example.foodapi.response.SearchResponse;
 import com.example.foodapi.utils.NetworkUtils;
 
 import java.util.List;
@@ -18,7 +17,6 @@ import java.util.List;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Call;
 
 public class SearchRepository {
 
@@ -52,10 +50,13 @@ public class SearchRepository {
                         insertCategories(categoryResponse.getResultsSearch());
                     }, error -> Log.d("ERROR", error.getMessage()));
         } else {
-            localClientSearch.getAllCategories()
+            localClientSearch.getAllCategories( query)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(liveData::postValue, throwable -> {
+                    .subscribe(list -> {
+                        Log.d("size", String.valueOf(list.size()));
+                        liveData.postValue(list);
+                    }, throwable -> {
                     });
         }
     }

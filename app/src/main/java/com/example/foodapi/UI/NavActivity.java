@@ -1,11 +1,11 @@
-package com.example.foodapi;
+package com.example.foodapi.UI;
 
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
 
-import com.example.foodapi.base.BaseActivity;
+import com.example.foodapi.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class NavActivity extends BaseActivity {
