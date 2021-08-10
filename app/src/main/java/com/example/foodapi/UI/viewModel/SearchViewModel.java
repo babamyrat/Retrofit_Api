@@ -27,9 +27,9 @@ public class SearchViewModel extends AndroidViewModel {
         super(application);
     }
 
-
     public void loadCategorySearch(String query){
         searchRepository.loadCategorySearch(liveData, query);
+
     }
 
 }

@@ -26,7 +26,6 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
         notifyDataSetChanged();
     }
 
-
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
         TextView txtTitle, txtNumber;
         private final ImageView coverImage;
@@ -37,9 +36,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
            // txtNumber = itemView.findViewById(R.id.textView2);
             txtTitle = itemView.findViewById(R.id.textView);
             coverImage = itemView.findViewById(R.id.imageView);
-
         }
-
     }
 
     public ExampleAdapter(Context context, List<ExampleModel> dataList){
@@ -68,7 +65,6 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                 .into(holder.coverImage);
 
     }
-
 
     @Override
     public int getItemCount() {

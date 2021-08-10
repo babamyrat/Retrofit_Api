@@ -22,9 +22,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     private List<SearchModel> dataList;
     private final Context context;
 
-
-
-
     public static class SearchViewHolder extends RecyclerView.ViewHolder {
         TextView idMeal, strMeal;
         private final ImageView strMealThumb;
@@ -80,17 +77,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
             notifyDataSetChanged();
         }
 
-
     }
-
-
-//    public void addData(List<SearchModel> listModel) {
-//        if (listModel != null)
-//            dataList = listModel;
-//        else
-//            dataList.clear();
-//        notifyDataSetChanged();
-//    }
-
 
 }
