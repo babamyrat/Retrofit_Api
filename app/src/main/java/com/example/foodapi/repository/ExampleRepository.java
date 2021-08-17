@@ -8,7 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 
 
 import com.example.foodapi.data.api.ApiClient;
-import com.example.foodapi.data.local.example.LocalClient;
+import com.example.foodapi.data.local.LocalClient;
 import com.example.foodapi.model.ExampleModel;
 import com.example.foodapi.utils.NetworkUtils;
 

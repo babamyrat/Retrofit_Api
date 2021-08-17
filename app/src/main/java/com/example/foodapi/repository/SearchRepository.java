@@ -7,8 +7,8 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.foodapi.data.api.ApiClient;
-import com.example.foodapi.data.api.ApiService;
-import com.example.foodapi.data.local.search.LocalClientSearch;
+
+import com.example.foodapi.data.local.LocalClient;
 import com.example.foodapi.model.SearchModel;
 import com.example.foodapi.utils.NetworkUtils;
 
@@ -23,14 +23,13 @@ public class SearchRepository {
     private Context context;
     private static SearchRepository instance;
     private ApiClient apiClient;
-    private LocalClientSearch localClientSearch;
+    private LocalClient localClientSearch;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
-    private ApiService apiService;
 
     private SearchRepository(Context context) {
         this.context = context;
         apiClient = ApiClient.newInstance();
-        localClientSearch = LocalClientSearch.newInstance(context);
+        localClientSearch = LocalClient.newInstance(context);
     }
 
     public static SearchRepository newInstanceSearch(Context context) {
@@ -62,7 +61,7 @@ public class SearchRepository {
     }
 
     public void insertCategories(List<SearchModel> categories) {
-        compositeDisposable.add(localClientSearch.insertAll(categories)
+        compositeDisposable.add(localClientSearch.insertAll1(categories)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {

@@ -1,4 +1,4 @@
-package com.example.foodapi.data.local.example;
+package com.example.foodapi.data.local;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
